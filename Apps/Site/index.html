@@ -4,28 +4,31 @@
   <meta charset="UTF-8" />
   <title>Magic2U — Magical Design Systems</title>
 
-  <!-- Global Styles -->
+  <!-- TOKENS FIRST -->
+  <link rel="stylesheet" href="Magic2U/tokens.css" />
+
+  <!-- GLOBAL STYLES -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Magic2U Tokens + Components -->
-  <link rel="stylesheet" href="Magic2U/tokens.css" />
+  <!-- WEB COMPONENTS -->
   <script type="module" src="Magic2U/magic-card.js"></script>
   <script type="module" src="Magic2U/magic-button.js"></script>
   <script type="module" src="Magic2U/magic-layout.js"></script>
 
-  <!-- Fairy Agent -->
+  <!-- FAIRY + SPARKLES + CHAT -->
   <script defer src="app.js"></script>
 </head>
 
 <body>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <magic-layout>
     <magic-card style="max-width: 600px; text-align: center;">
       <h1 style="font-size: 3rem; margin-bottom: 12px;">Magic2U</h1>
       <p style="font-size: 1.25rem; margin-bottom: 20px;">
         Magical design systems built for startups and enterprises.
       </p>
+
       <magic-button style="margin-right: 10px;">Book a Call</magic-button>
       <magic-button onclick="window.location.href='https://github.com/healthearth/Magic2U-Design-System'">
         View on GitHub
@@ -34,38 +37,37 @@
   </magic-layout>
 
   <!-- DESIGN SYSTEM SECTION -->
-  <section style="padding: 80px 20px; max-width: 900px; margin: auto;">
+  <section class="section">
     <magic-card>
-      <h2 style="margin-bottom: 12px;">The Magic2U Design System</h2>
+      <h2>The Magic2U Design System</h2>
       <p>
-        Magic2U is a modular, reusable design system and engineering platform.  
-        It includes UI components, design tokens, workflows, AI plugins, and a CLI —  
-        all designed to help teams build consistent, scalable digital products.
+        Magic2U is a modular, reusable design system and engineering platform.
+        It includes UI components, design tokens, workflows, AI plugins, and a CLI.
       </p>
 
-      <ul style="margin-top: 20px; line-height: 1.8;">
-        <li>✨ Web Components (<code>&lt;magic-card&gt;</code>, <code>&lt;magic-button&gt;</code>, etc.)</li>
+      <ul class="feature-list">
+        <li>✨ Web Components (<code>&lt;magic-card&gt;</code>, <code>&lt;magic-button&gt;</code>)</li>
         <li>✨ Design tokens for color, spacing, typography</li>
-        <li>✨ Workflow engine for multi-step processes</li>
-        <li>✨ AI plugins (OpenAI, LLM, Weather)</li>
-        <li>✨ CLI for scaffolding apps and components</li>
+        <li>✨ Workflow engine</li>
+        <li>✨ AI plugins</li>
+        <li>✨ CLI for scaffolding apps</li>
       </ul>
     </magic-card>
   </section>
 
-  <!-- SERVICES SECTION -->
-  <section style="padding: 80px 20px; max-width: 900px; margin: auto;">
+  <!-- SERVICES -->
+  <section class="section">
     <magic-card>
-      <h2 style="margin-bottom: 12px;">White‑Glove Design System Services</h2>
+      <h2>White‑Glove Design System Services</h2>
       <p>We help startups and enterprises build scalable, reusable, AI‑powered design systems.</p>
 
-      <h3 style="margin-top: 20px;">Startup System Sprint</h3>
+      <h3>Startup System Sprint</h3>
       <p>2–4 weeks — tokens, core components, starter docs, and a working system.</p>
 
-      <h3 style="margin-top: 20px;">Scale‑Up System Upgrade</h3>
+      <h3>Scale‑Up System Upgrade</h3>
       <p>Refactor your existing UI into reusable components and patterns.</p>
 
-      <h3 style="margin-top: 20px;">Enterprise Design System Program</h3>
+      <h3>Enterprise Design System Program</h3>
       <p>Governance, multi-team adoption, versioning, training, and internal tooling.</p>
 
       <magic-button style="margin-top: 20px;">Work With Magic2U</magic-button>
@@ -73,15 +75,16 @@
   </section>
 
   <!-- FAIRY AGENT -->
-  <div id="fairy">
-    <h3>Fairy Help ✨</h3>
-    <div id="chat-messages" style="height: 150px; overflow-y: auto; font-size: 0.9rem; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-      <p>Hello! How can I help you build your magic today?</p>
-    </div>
-    <textarea id="chat-input" placeholder="Ask me anything..."></textarea>
-    <button onclick="sendMessage()">Send Magic</button>
+  <div id="fairy"></div>
+
+  <!-- FAIRY CHAT PANEL -->
+  <div id="fairy-chat">
+    <h3>MagicaI Assistant</h3>
+    <p>Ask me anything about Magic2U, design systems, or how we can help your company.</p>
+    <textarea id="fairy-input" placeholder="Type your question..."></textarea>
+    <button id="fairy-send">Ask</button>
+    <p id="fairy-response"></p>
   </div>
 
 </body>
 </html>
-
