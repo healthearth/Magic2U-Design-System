@@ -37,6 +37,30 @@ document.addEventListener("mousemove", (e) => {
   }
 });
 
+// --- SPARKLE TRAIL ENGINE ---
+document.addEventListener('mousemove', (e) => {
+    createSparkle(e.pageX, e.pageY);
+});
+
+function createSparkle(x, y) {
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle-dot';
+    
+    // Randomize size and position slightly for a "dust" effect
+    const size = Math.random() * 8 + 2;
+    sparkle.style.width = `${size}px`;
+    sparkle.style.height = `${size}px`;
+    sparkle.style.left = `${x}px`;
+    sparkle.style.top = `${y}px`;
+
+    document.body.appendChild(sparkle);
+
+    // Remove the element after animation ends to keep the DOM clean
+    setTimeout(() => {
+        sparkle.remove();
+    }, 1000);
+}
+
 // ------------------------------
 // OPEN CHAT ON CLICK
 // ------------------------------
