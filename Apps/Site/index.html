@@ -2,25 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Magic2U — Magical Design System</title>
+  <title>Magic2U — Magical Design Systems Powered by AI</title>
+
+  <!-- Global Styles -->
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="Magic2u/tokens.css" />
-  <script type="module" src="Magic2u/magic-card.js"></script>
-  <script type="module" src="Magic2u/magic-button.js"></script>
-  <script type="module" src="Magic2u/magic-layout.js"></script>
+
+  <!-- Magic2U Tokens + Components -->
+  <link rel="stylesheet" href="magic2u/tokens.css" />
+  <script type="module" src="magic2u/magic-card.js"></script>
+  <script type="module" src="magic2u/magic-button.js"></script>
+  <script type="module" src="magic2u/magic-layout.js"></script>
+
+  <!-- Fairy Agent -->
   <script defer src="app.js"></script>
 </head>
 
 <body>
+
+  <!-- HERO SECTION -->
   <magic-layout>
-    <magic-card>
-      <h1>Magic2U</h1>
-      <p>Magical design systems powered by AI.</p>
-      <magic-button>Book a Call</magic-button>
+    <magic-card style="max-width: 600px; text-align: center;">
+      <h1 style="font-size: 3rem; margin-bottom: 12px;">Magic2U</h1>
+      <p style="font-size: 1.25rem; margin-bottom: 20px;">
+        Magical design systems powered by AI — built for startups and enterprises.
+      </p>
+      <magic-button style="margin-right: 10px;">Book a Call</magic-button>
+      <magic-button onclick="window.location.href='https://github.com/YOURUSERNAME/Magic2u-Design-System'">
+        View on GitHub
+      </magic-button>
     </magic-card>
   </magic-layout>
 
+  <!-- DESIGN SYSTEM SECTION -->
+  <section style="padding: 80px 20px; max-width: 900px; margin: auto;">
+    <magic-card>
+      <h2 style="margin-bottom: 12px;">The Magic2U Design System</h2>
+      <p>
+        Magic2U is a modular, reusable design system and engineering platform.  
+        It includes UI components, design tokens, workflows, AI plugins, and a CLI —  
+        all designed to help teams build consistent, scalable digital products.
+      </p>
+
+      <ul style="margin-top: 20px; line-height: 1.8;">
+        <li>✨ Web Components (<code>&lt;magic-card&gt;</code>, <code>&lt;magic-button&gt;</code>, etc.)</li>
+        <li>✨ Design tokens for color, spacing, typography</li>
+        <li>✨ Workflow engine for multi-step processes</li>
+        <li>✨ AI plugins (OpenAI, LLM, Weather)</li>
+        <li>✨ CLI for scaffolding apps and components</li>
+      </ul>
+    </magic-card>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section style="padding: 80px 20px; max-width: 900px; margin: auto;">
+    <magic-card>
+      <h2 style="margin-bottom: 12px;">White‑Glove Design System Services</h2>
+      <p>We help startups and enterprises build scalable, reusable, AI‑powered design systems.</p>
+
+      <h3 style="margin-top: 20px;">Startup System Sprint</h3>
+      <p>2–4 weeks — tokens, core components, starter docs, and a working system.</p>
+
+      <h3 style="margin-top: 20px;">Scale‑Up System Upgrade</h3>
+      <p>Refactor your existing UI into reusable components and patterns.</p>
+
+      <h3 style="margin-top: 20px;">Enterprise Design System Program</h3>
+      <p>Governance, multi-team adoption, versioning, training, and internal tooling.</p>
+
+      <magic-button style="margin-top: 20px;">Work With Magic2U</magic-button>
+    </magic-card>
+  </section>
+
+  <!-- FAIRY AGENT -->
   <div id="fairy"></div>
+
 </body>
 </html>
 
