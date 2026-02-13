@@ -73,7 +73,14 @@
   </section>
 
   <!-- FAIRY AGENT -->
-  <div id="fairy"></div>
+  <div id="fairy">
+    <h3>Fairy Help ✨</h3>
+    <div id="chat-messages" style="height: 150px; overflow-y: auto; font-size: 0.9rem; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+      <p>Hello! How can I help you build your magic today?</p>
+    </div>
+    <textarea id="chat-input" placeholder="Ask me anything..."></textarea>
+    <button onclick="sendMessage()">Send Magic</button>
+  </div>
 
 </body>
 </html>
