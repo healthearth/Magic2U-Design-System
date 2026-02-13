@@ -1,18 +1,5 @@
-/* ----------------------------------------------------
-   MAGIC2U — FULL CLEAN CSS LAUNCH (RESTORED VERSION)
-   Fixes: hover states, shadows, tokens priority, 
-   sparkle performance, duplicate body styles, 
-   missing variables, broken component visuals.
------------------------------------------------------*/
-
-/* ------------------------------
-   GLOBAL RESET
---------------------------------*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body {
   height: 100%;
@@ -21,14 +8,12 @@ html, body {
   color: #fffffe;
 }
 
-/* ------------------------------
-   BACKGROUND (RESTORED)
---------------------------------*/
+/* BACKGROUND */
 body {
   background: radial-gradient(circle at top left, #1b1a2e, #0f0e17 60%);
 }
 
-/* Subtle magic dust */
+/* MAGIC DUST */
 body::before {
   content: "";
   position: fixed;
@@ -47,26 +32,17 @@ body::before {
   to   { transform: translateY(-200px); }
 }
 
-/* ------------------------------
-   TYPOGRAPHY
---------------------------------*/
-h1, h2, h3 {
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
+/* TYPOGRAPHY */
+h1, h2, h3 { font-weight: 700; letter-spacing: -0.5px; }
+p { line-height: 1.6; opacity: 0.9; }
 
-p {
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-/* ------------------------------
-   MAGIC2U COMPONENT RESTORATION
---------------------------------*/
-
-/* Restore hover lift */
+/* MAGIC COMPONENTS */
 magic-card {
   display: block;
+  background: var(--surface);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -75,7 +51,102 @@ magic-card:hover {
   box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
 
-/* Restore button hover */
 magic-button {
   cursor: pointer;
-  transition: transform 0.2s ease, filter
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+magic-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+
+magic-layout {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+/* SECTIONS */
+.section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.feature-list {
+  margin-top: 20px;
+  line-height: 1.8;
+}
+
+/* FAIRY */
+#fairy {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #2cb67d, #1a8f5a);
+  box-shadow: 0 0 20px #2cb67d, 0 0 40px rgba(44,182,125,0.6);
+  cursor: grab;
+  z-index: 9999;
+  animation: fairyFloat 4s ease-in-out infinite;
+}
+
+@keyframes fairyFloat {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* FAIRY CHAT */
+#fairy-chat {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 300px;
+  background: rgba(15, 14, 23, 0.85);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+  display: none;
+  z-index: 9998;
+}
+
+#fairy-chat textarea {
+  width: 100%;
+  height: 80px;
+  background: rgba(255,255,255,0.05);
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  color: #fffffe;
+}
+
+#fairy-chat button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background: var(--primary);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* SPARKLES */
+.sparkle-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.8);
+  pointer-events: none;
+  animation: sparkleFade 1s ease-out forwards;
+}
+
+@keyframes sparkleFade {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.4); }
+}
