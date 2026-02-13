@@ -1,1 +1,9 @@
+:root {
+  --magic-primary: #7f5af0;
+  --magic-secondary: #2cb67d;
+  --magic-bg: #0f0e17;
+  --magic-text: #fffffe;
+  --magic-radius: 12px;
+  --magic-padding: 16px;
+}
 
