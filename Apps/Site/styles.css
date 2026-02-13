@@ -1,5 +1,12 @@
+/* ----------------------------------------------------
+   MAGIC2U — FULL CLEAN CSS LAUNCH (RESTORED VERSION)
+   Fixes: hover states, shadows, tokens priority, 
+   sparkle performance, duplicate body styles, 
+   missing variables, broken component visuals.
+-----------------------------------------------------*/
+
 /* ------------------------------
-   GLOBAL RESET + BASE STYLES
+   GLOBAL RESET
 --------------------------------*/
 * {
   margin: 0;
@@ -9,37 +16,23 @@
 
 html, body {
   height: 100%;
-  background: #0f0e17;
-  color: #fffffe;
-  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-}
-
-/* Hover lift effect for magic cards */
-magic-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-magic-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  font-family: 'Inter', sans-serif;
+  color: #fffffe;
 }
 
 /* ------------------------------
-   BACKGROUND EFFECTS
+   BACKGROUND (RESTORED)
 --------------------------------*/
 body {
   background: radial-gradient(circle at top left, #1b1a2e, #0f0e17 60%);
 }
 
-/* Floating particles (subtle magic dust) */
+/* Subtle magic dust */
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   pointer-events: none;
   background-image:
     radial-gradient(circle, rgba(255,255,255,0.15) 2px, transparent 2px),
@@ -51,7 +44,7 @@ body::before {
 
 @keyframes drift {
   from { transform: translateY(0px); }
-  to { transform: translateY(-200px); }
+  to   { transform: translateY(-200px); }
 }
 
 /* ------------------------------
@@ -68,101 +61,21 @@ p {
 }
 
 /* ------------------------------
-   FAIRY AGENT
+   MAGIC2U COMPONENT RESTORATION
 --------------------------------*/
-#fairy {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #2cb67d, #1a8f5a);
-  box-shadow: 0 0 20px #2cb67d, 0 0 40px rgba(44,182,125,0.6);
-  cursor: grab;
-  z-index: 9999;
-  animation: fairyFloat 4s ease-in-out infinite;
+
+/* Restore hover lift */
+magic-card {
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Fairy idle floating animation */
-@keyframes fairyFloat {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
+magic-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
 
-/* Fairy sparkle trail */
-#fairy::after {
-  content: "";
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background: rgba(255,255,255,0.6);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  filter: blur(6px);
-  animation: sparkle 1.2s infinite;
-}
-
-@keyframes sparkle {
-  0%   { opacity: 0.2; transform: scale(0.8); }
-  50%  { opacity: 1;   transform: scale(1.2); }
-  100% { opacity: 0.2; transform: scale(0.8); }
-}
-
-/* ------------------------------
-   FAIRY CHAT PANEL
---------------------------------*/
-#fairy-chat {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
-  background: rgba(15, 14, 23, 0.85);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  padding: 16px;
-  backdrop-filter: blur(10px);
-  color: #fffffe;
-  display: none;
-  z-index: 9998;
-}
-
-#fairy-chat h3 {
-  margin-bottom: 8px;
-}
-
-#fairy-chat textarea {
-  width: 100%;
-  height: 80px;
-  background: rgba(255,255,255,0.05);
-  border: none;
-  border-radius: 8px;
-  padding: 8px;
-  color: #fffffe;
-  resize: none;
-}
-
-#fairy-chat button {
-  margin-top: 10px;
-  width: 100%;
-  padding: 10px;
-  background: var(--magic-primary);
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
+/* Restore button hover */
+magic-button {
   cursor: pointer;
-}
-
-/* ------------------------------
-   LAYOUT HELPERS
---------------------------------*/
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+  transition: transform 0.2s ease, filter
