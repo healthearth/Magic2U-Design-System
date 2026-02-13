@@ -1,1 +1,17 @@
+{
+  "name": "magic2u",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "demo:metrics": "ts-node apps/metrics-dashboard/index.ts",
+    "demo:feedback": "ts-node apps/feedback-form/index.ts"
+  },
+  "dependencies": {
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.1"
+  }
+}
 
