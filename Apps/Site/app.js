@@ -1,23 +1,8 @@
-// ------------------------------
-// FAIRY SETUP
-// ------------------------------
+// FAIRY
 const fairy = document.getElementById("fairy");
+const chat = document.getElementById("fairy-chat");
 
-// Create chat panel
-const chat = document.createElement("div");
-chat.id = "fairy-chat";
-chat.innerHTML = `
-  <h3>MagicaI Assistant</h3>
-  <p>Ask me anything about Magic2U, design systems, or how we can help your company.</p>
-  <textarea id="fairy-input" placeholder="Type your question..."></textarea>
-  <button id="fairy-send">Ask</button>
-  <p id="fairy-response" style="margin-top:10px; opacity:0.8;"></p>
-`;
-document.body.appendChild(chat);
-
-// ------------------------------
-// DRAGGABLE FAIRY
-// ------------------------------
+// DRAGGING
 let isDragging = false;
 
 fairy.addEventListener("mousedown", () => {
@@ -37,40 +22,39 @@ document.addEventListener("mousemove", (e) => {
   }
 });
 
-// --- SPARKLE TRAIL ENGINE ---
-document.addEventListener('mousemove', (e) => {
+// SPARKLES (THROTTLED)
+let lastSparkle = 0;
+
+document.addEventListener("mousemove", (e) => {
+  const now = Date.now();
+  if (now - lastSparkle > 40) {
     createSparkle(e.pageX, e.pageY);
+    lastSparkle = now;
+  }
 });
 
 function createSparkle(x, y) {
-    const sparkle = document.createElement('div');
-    sparkle.className = 'sparkle-dot';
-    
-    // Randomize size and position slightly for a "dust" effect
-    const size = Math.random() * 8 + 2;
-    sparkle.style.width = `${size}px`;
-    sparkle.style.height = `${size}px`;
-    sparkle.style.left = `${x}px`;
-    sparkle.style.top = `${y}px`;
+  const sparkle = document.createElement("div");
+  sparkle.className = "sparkle-dot";
 
-    document.body.appendChild(sparkle);
+  const size = Math.random() * 8 + 2;
+  sparkle.style.width = `${size}px`;
+  sparkle.style.height = `${size}px`;
+  sparkle.style.left = `${x}px`;
+  sparkle.style.top = `${y}px`;
 
-    // Remove the element after animation ends to keep the DOM clean
-    setTimeout(() => {
-        sparkle.remove();
-    }, 1000);
+  document.body.appendChild(sparkle);
+  setTimeout(() => sparkle.remove(), 1000);
 }
 
-// ------------------------------
-// OPEN CHAT ON CLICK
-// ------------------------------
+// CHAT TOGGLE
 fairy.addEventListener("click", () => {
-  chat.style.display = chat.style.display === "block" ? "none" : "block";
+  if (!isDragging) {
+    chat.style.display = chat.style.display === "block" ? "none" : "block";
+  }
 });
 
-// ------------------------------
 // SIMPLE AI SIMULATION
-// ------------------------------
 document.getElementById("fairy-send").addEventListener("click", () => {
   const input = document.getElementById("fairy-input").value.trim();
   const response = document.getElementById("fairy-response");
@@ -80,8 +64,8 @@ document.getElementById("fairy-send").addEventListener("click", () => {
     return;
   }
 
-  // Simulated AI response
-  response.textContent = `✨ Great question! Magic2U helps by creating reusable components, tokens, and workflows that scale across your entire product ecosystem.`;
+  response.textContent =
+    "✨ Magic2U helps teams scale with reusable components, tokens, and workflows.";
 
   document.getElementById("fairy-input").value = "";
 });
