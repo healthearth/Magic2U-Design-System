@@ -81,7 +81,7 @@
        // - hot reload
        // - dynamic compilation
       //
-      // Caching woudl break the workflow, so we disable it. 
+      // Caching would break the workflow, so we disable it. 
       "cache": false
     }
   }
