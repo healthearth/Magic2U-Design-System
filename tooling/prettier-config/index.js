@@ -1,6 +1,45 @@
-module.exports = {
-  semi: true,
-  singleQuote: false,
-  trailingComma: "all"
-};
+// ------------------------------------------------------------
+// Prettier Configuration for the Magic2U Monorepo
+// ------------------------------------------------------------
+// Prettier is the opinionated code formatter used across the
+// entire Magic2U ecosystem. It ensures that every file —
+// TypeScript, JavaScript, JSON, Markdown, CSS — follows a
+// consistent formatting style.
+//
+// Why this matters:
+//   - Eliminates formatting debates
+//   - Keeps diffs clean and readable
+//   - Ensures consistency across apps, packages, and tooling
+//   - Improves onboarding for contributors
+//
+// This config defines the formatting rules that apply repo‑wide.
+// ------------------------------------------------------------
 
+module.exports = {
+  // ------------------------------------------------------------
+  // semi: true
+  // ------------------------------------------------------------
+  // Controls whether Prettier inserts semicolons at the end of
+  // statements.
+  //
+  // Setting this to true enforces:
+  //   - explicit statement termination
+  //   - fewer accidental ASI (Automatic Semicolon Insertion) bugs
+  //   - consistency across all codebases in the monorepo
+  //
+  // This is especially helpful in large teams and multi‑package
+  // environments where implicit semicolon behavior can cause
+  // subtle issues.
+  semi: true,
+
+  // ------------------------------------------------------------
+  // singleQuote: false
+  // ------------------------------------------------------------
+  // Determines whether Prettier uses single or double quotes.
+  //
+  // Setting this to false means:
+  //   - Prettier will use double quotes
+  //   - JSON‑like consistency across the repo
+  //   - Better alignment with many UI frameworks and config files
+  //
+  // This also avoids escaping issues
