@@ -12,7 +12,7 @@ final draft
 [![CI](https://github.com/healthearth/Magic2U-Design-System/actions/workflows/ci.yml/badge.svg)](https://github.com/healthearth/Magic2U-Design-System/actions/workflows/ci.yml)
 [![Accessibility Check](https://github.com/healthearth/Magic2U-Design-System/actions/workflows/accessibility-check.yml/badge.svg)](https://github.com/healthearth/Magic2U-Design-System/actions/workflows/accessibility-check.yml)
 [![Release](https://img.shields.io/badge/version-0.1.0--beta-3BFFC8?style=flat-square&logo=npm)](https://github.com/healthearth/Magic2U-Design-System/releases)
-[![License: Apache 2.0](https://img.shields.io/badge/license-MIT-63C4FF?style=flat-square)](./LICENSE)
+[![License: Apache2.0](https://img.shields.io/badge/license-Apache2.0-63C4FF?style=flat-square)](./LICENSE)
 [![pnpm](https://img.shields.io/badge/pnpm-workspace-orange?style=flat-square&logo=pnpm)](https://pnpm.io/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 
