@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MetricsCard } from "./MetricsCard";
+import { MetricsCard } from "./StatsCard";
 
 export function EnterpriseDashboard() {
   const [data, setData] = useState<any>(null);
