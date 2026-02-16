@@ -1,12 +1,16 @@
-import { calculateAccessibilityScore } from "./accessibility-score";
+import { calculateAccessibilityScore } from './accessibility-score';
 
-export function enforceAccessibilityThreshold(score: number, threshold = 90) {
-  if (score < threshold) {
+export function enforceAccessibilityThreshold(
+  violations: any[],
+  minScore = 90
+) {
+  const score = calculateAccessibilityScore(violations);
+
+  if (score < minScore) {
     throw new Error(
-      `Accessibility score ${score} is below required threshold ${threshold}`
+      `Accessibility score ${score} is below required threshold ${minScore}`
     );
   }
 
-  return true;
+  return score;
 }
-
