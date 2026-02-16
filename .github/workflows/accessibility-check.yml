@@ -1,1 +1,13 @@
+name: Accessibility Check
+
+on:
+  pull_request:
+
+jobs:
+  a11y:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: pnpm install
+      - run: pnpm test --filter accessibility
 
