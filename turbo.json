@@ -1,16 +1,87 @@
 {
+  // The Turbo schema ensures your config is validated
+  // against Turbo’s official structure. This helps catch
+  // typos, invalid pipeline names, or unsupported fields.
   "$schema": "https://turbo.build/schema.json",
+
   "pipeline": {
+    // -----------------------------
+    // BUILD PIPELINE
+    // -----------------------------
     "build": {
+      // dependsOn: ["^build"]
+      //
+      // The caret (^) means: “run the build task of all
+      // *direct and indirect* dependencies first.”
+      //
+      // Example:
+      //   apps/web depends on packages/ui
+      //   → Turbo will run packages/ui#build before apps/web#build
+      //
+      // This enforces a topological build order across your monorepo.
       "dependsOn": ["^build"],
+
+      // outputs: ["dist/**"]
+      //
+      // This tells Turbo that the build step produces files
+      // inside a dist/ folder. Turbo uses this to:
+      //   - cache build results
+      //   - skip rebuilding unchanged packages
+      //   - enable remote caching
+      //
+      // Without this, Turbo wouldn’t know what artifacts
+      // represent a “successful build.”
       "outputs": ["dist/**"]
     },
+
+    // -----------------------------
+    // DEV PIPELINE
+    // -----------------------------
     "dev": {
+      // cache: false
+      //
+      // Dev servers should *never* be cached. Turbo would
+      // otherwise try to reuse a previous dev run, which
+      // makes no sense for hot reload workflows.
+      //
+      // Setting this to false ensures:
+      //   - dev always runs fresh
+      //   - no caching of logs or artifacts
       "cache": false
     },
-    "lint": {},
-    "test": {},
+
+    // -----------------------------
+    // LINT PIPELINE
+    // -----------------------------
+    "lint": {
+      // No special config needed.
+      //
+      // Turbo will: 
+      // - run lint in parallel across packages 
+      // - cache results unless code changes 
+      // // This dramatically speeds up monorepo linting. 
+    },
+    
+    // ----------------------------- 
+    // TEST PIPELINE 
+    // ----------------------------- "test": 
+    { 
+      // Same as lint — Turbo caches test results 
+      // based on file hashing and dependency graph. 
+      // // If no code changed, tests skip instantly. 
+},
+
+      // --------------------
+      // STORYBOOK PIPELINE
+      //---------------------------
     "storybook": {
+     // cache: false
+       //
+       // Storybook behaves like a dev server:
+       // - hot reload
+       // - dynamic compilation
+      //
+      // Caching woudl break the workflow, so we disable it. 
       "cache": false
     }
   }
