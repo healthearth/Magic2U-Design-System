@@ -42,4 +42,20 @@ module.exports = {
   //   - JSON‑like consistency across the repo
   //   - Better alignment with many UI frameworks and config files
   //
-  // This also avoids escaping issues
+  // This also avoids escaping issues when writing JSX attributes. 
+  singleQuote: false, 
+  
+  // ------------------------------------------------------------ 
+  // trailingComma: "all" 
+  // ------------------------------------------------------------ 
+  // Controls whether Prettier adds trailing commas in objects, 
+  // arrays, imports, and function parameters. 
+  //
+   // "all" means: 
+  // - Always add trailing commas where valid 
+  // - Cleaner diffs (only the changed line appears in PRs) 
+  // - Easier multi‑line editing 
+  // 
+  // This is a best practice for long‑lived codebases and 
+  // monorepos with many contributors. trailingComma: "all" 
+  };
