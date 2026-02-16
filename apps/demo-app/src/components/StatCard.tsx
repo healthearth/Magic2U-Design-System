@@ -3,12 +3,12 @@ type Props = {
   value: string;
 };
 
-export function MetricsCard({ label, value }: Props) {
+export function StatCard({ label, value }: Props) {
   return (
     <div style={{
-      padding: "24px",
       background: "#1e293b",
-      borderRadius: "12px",
+      padding: 24,
+      borderRadius: 12,
       color: "white"
     }}>
       <p style={{ opacity: 0.6 }}>{label}</p>
@@ -16,4 +16,5 @@ export function MetricsCard({ label, value }: Props) {
     </div>
   );
 }
+
 
