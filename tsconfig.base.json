@@ -1,20 +1,164 @@
 {
   "compilerOptions": {
+    // ------------------------------------------------------------
+    // target: "ES2020"
+    // ------------------------------------------------------------
+    // This tells TypeScript what JavaScript version to emit.
+    // ES2020 is a modern baseline that supports:
+    //   - optional chaining
+    //   - nullish coalescing
+    //   - BigInt
+    //   - dynamic import()
+    //
+    // Choosing ES2020 keeps output lean while still compatible
+    // with modern browsers and bundlers.
     "target": "ES2020",
+
+    // ------------------------------------------------------------
+    // module: "ESNext"
+    // ------------------------------------------------------------
+    // This controls how modules are emitted.
+    // "ESNext" means:
+    //   - keep native `import` / `export` syntax
+    //   - let bundlers (Vite, Webpack, Tauri’s bundler) handle it
+    //
+    // This is ideal for design systems and monorepos because it
+    // avoids locking you into CommonJS and keeps tree‑shaking alive.
     "module": "ESNext",
+
+    // ------------------------------------------------------------
+    // lib: ["DOM", "ES2020"]
+    // ------------------------------------------------------------
+    // These are the global types TypeScript loads.
+    // "DOM" gives you browser APIs (document, window, HTMLElement).
+    // "ES2020" gives you modern JS built‑ins (Promise, Map, Set, etc.).
+    //
+    // Without these, TypeScript would complain about basic browser APIs.
     "lib": ["DOM", "ES2020"],
+
+    // ------------------------------------------------------------
+    // moduleResolution: "Node"
+    // ------------------------------------------------------------
+    // This tells TypeScript how to resolve imports.
+    // "Node" means:
+    //   - look for index.js / index.ts
+    //   - follow node_modules resolution rules
+    //   - respect package.json "exports" and "types"
+    //
+    // This is the standard for monorepos and works with Turbo, Vite,
+    // and Tauri without extra config.
     "moduleResolution": "Node",
+
+    // ------------------------------------------------------------
+    // jsx: "react-jsx"
+    // ------------------------------------------------------------
+    // This enables the modern React 17+ JSX transform.
+    // Even if your main Magic2U components are Web Components,
+    // this setting allows:
+    //   - Storybook React stories
+    //   - React-based docs sites
+    //   - React playgrounds for your design system
+    //
+    // It avoids the need to import React manually in every file.
     "jsx": "react-jsx",
+
+    // ------------------------------------------------------------
+    // strict: true
+    // ------------------------------------------------------------
+    // Enables ALL strict TypeScript rules:
+    //   - noImplicitAny
+    //   - strictNullChecks
+    //   - strictBindCallApply
+    //   - strictFunctionTypes
+    //   - strictPropertyInitialization
+    //
+    // This is essential for a design system because it:
+    //   - prevents API ambiguity
+    //   - forces explicitness in component props
+    //   - catches bugs before they hit consumers
     "strict": true,
+
+    // ------------------------------------------------------------
+    // skipLibCheck: true
+    // ------------------------------------------------------------
+    // Skips type checking inside node_modules.
+    // This dramatically speeds up builds and avoids noise from
+    // third‑party libraries with imperfect type definitions.
+    //
+    // Safe to enable in almost all real-world projects.
     "skipLibCheck": true,
+
+    // ------------------------------------------------------------
+    // declaration: true
+    // ------------------------------------------------------------
+    // Generates .d.ts files for every compiled file.
+    // This is CRITICAL for:
+    //   - publishing packages to npm
+    //   - enabling IntelliSense for consumers
+    //   - ensuring your design system is fully typed
+    //
+    // Without this, downstream apps would not get type safety.
     "declaration": true,
+
+    // ------------------------------------------------------------
+    // declarationMap: true
+    // ------------------------------------------------------------
+    // Generates .d.ts.map files so editors can trace types
+    // back to the original source.
+    //
+    // This is extremely helpful for debugging and for consumers
+    // exploring your design system in VS Code.
     "declarationMap": true,
+
+    // ------------------------------------------------------------
+    // sourceMap: true
+    // ------------------------------------------------------------
+    // Emits .map files for JavaScript output.
+    // This enables:
+    //   - browser debugging with original TypeScript
+    //   - better stack traces
+    //   - easier Storybook debugging
     "sourceMap": true,
+
+    // ------------------------------------------------------------
+    // baseUrl: "."
+    // ------------------------------------------------------------
+    // Sets the root for non-relative imports.
+    // This allows imports like:
+    //   import { Button } from "@magic2u/ui/button"
+    //
+    // Instead of:
+    //   import { Button } from "../../../packages/ui/button"
+    //
+    // Essential for monorepo cleanliness.
     "baseUrl": ".",
+
+    // ------------------------------------------------------------
+    // paths: { ... }
+    // ------------------------------------------------------------
+    // These are your monorepo alias mappings.
+    // They allow TypeScript to understand your internal package
+    // structure without publishing anything.
+    //
+    // Each alias maps to a folder inside /packages.
+    //
+    // This is the backbone of your Magic2U design system.
     "paths": {
+      // UI COMPONENTS
+      // All reusable Web Components, React wrappers, and primitives.
       "@magic2u/ui/*": ["packages/ui/*"],
+
+      // DESIGN TOKENS
+      // Colors, spacing, typography, radii, shadows, motion.
+      // This is the foundation layer of your design system.
       "@magic2u/tokens/*": ["packages/tokens/*"],
+
+      // THEME ENGINE
+      // Theme switching, CSS variable generation, dark/light modes.
       "@magic2u/theme/*": ["packages/theme-engine/*"],
+
+      // ANALYTICS
+      // Event tracking, telemetry, user behavior instrumentation.
       "@magic2u/analytics/*": ["packages/analytics/*"]
     }
   }
