@@ -1,26 +1,116 @@
 {
+  // ------------------------------------------------------------
+  // name: "magic2u-design-system"
+  // ------------------------------------------------------------
+  // This is the root package name for your entire monorepo.
+  // It doesn’t publish anything itself — instead, it acts as
+  // the orchestrator for apps, packages, and tooling.
+  //
+  // Naming it after the design system reinforces that the DS
+  // is the core of the ecosystem.
   "name": "magic2u-design-system",
+
+  // ------------------------------------------------------------
+  // private: true
+  // ------------------------------------------------------------
+  // This prevents accidental publication of the root workspace
+  // to npm. Only individual packages inside /packages will be
+  // published via Changesets.
   "private": true,
+
+  // ------------------------------------------------------------
+  // version: "0.1.0"
+  // ------------------------------------------------------------
+  // The root version is mostly symbolic. Real versioning happens
+  // inside each workspace package using Changesets.
   "version": "0.1.0",
+
+  // ------------------------------------------------------------
+  // packageManager: "pnpm@8.0.0"
+  // ------------------------------------------------------------
+  // Locks the repo to a specific package manager and version.
+  // pnpm is ideal for monorepos because:
+  //   - it uses a content-addressable store
+  //   - it avoids node_modules duplication
+  //   - it is significantly faster than npm/yarn
+  //
+  // Turbo + pnpm is a best‑in‑class monorepo pairing.
   "packageManager": "pnpm@8.0.0",
+
+  // ------------------------------------------------------------
+  // workspaces: [...]
+  // ------------------------------------------------------------
+  // These define the structure of your monorepo.
+  // Turbo and pnpm both use this list to:
+  //   - link internal packages automatically
+  //   - detect dependency graphs
+  //   - run tasks across the repo
+  //
+  // apps/*      → consumer applications (docs site, Storybook, demos)
+  // packages/*  → reusable libraries (ui, tokens, theme-engine, analytics)
+  // tooling/*   → build scripts, CLIs, codemods, internal utilities
   "workspaces": [
     "apps/*",
     "packages/*",
     "tooling/*"
   ],
+
+  // ------------------------------------------------------------
+  // scripts: { ... }
+  // ------------------------------------------------------------
+  // These commands delegate to Turbo, which runs tasks across
+  // the entire monorepo using caching and dependency awareness.
+  //
+  // This is the “control panel” for the whole Magic2U ecosystem.
   "scripts": {
+    // Runs all dev servers in parallel (apps + Storybook + tooling).
     "dev": "turbo run dev",
+
+    // Builds every package and app in dependency order.
     "build": "turbo run build",
+
+    // Lints all workspaces using shared ESLint config.
     "lint": "turbo run lint",
+
+    // Runs tests across the monorepo with caching.
     "test": "turbo run test",
+
+    // Launches Storybook for your design system.
     "storybook": "turbo run storybook",
+
+    // Publishes versioned packages using Changesets.
+    // This handles:
+    //   - version bumping
+    //   - changelog generation
+    //   - npm publishing
     "release": "changeset publish"
   },
+
+  // ------------------------------------------------------------
+  // devDependencies: { ... }
+  // ------------------------------------------------------------
+  // These are tools required for development but not shipped
+  // with any published package.
   "devDependencies": {
+    // Turbo is the task runner that powers your monorepo.
+    // It handles:
+    //   - caching
+    //   - parallel execution
+    //   - dependency graph analysis
     "turbo": "^1.11.0",
-    "@changesets/cli": "^2.26.0",
+
+    // Changesets manages versioning and publishing for each
+    // individual package inside /packages.
+    " @changesets/cli": "^2.26.0",
+
+    // TypeScript is the foundation of your design system.
+    // All packages compile through it.
     "typescript": "^5.3.0",
+
+    // ESLint enforces code quality and consistency.
     "eslint": "^8.50.0",
+
+    // Prettier enforces formatting consistency across the repo.
     "prettier": "^3.0.0"
   }
 }
