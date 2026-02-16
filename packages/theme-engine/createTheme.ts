@@ -1,4 +1,11 @@
-export function createTheme(name: string, tokens: Record<string, string>) {
-  return { name, tokens };
-}
+import { registerTheme } from './theme-registry';
 
+export function createTheme(config: any) {
+  const theme = {
+    ...config,
+    createdAt: Date.now(),
+  };
+
+  registerTheme(theme);
+  return theme;
+}
