@@ -1,1 +1,9 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config/schema.json",
+  "changelog": ["@changesets/changelog-github", { "repo": "yourusername/Magic2U-Design-System" }],
+  "commit": false,
+  "linked": [],
+  "access": "public",
+  "baseBranch": "main"
+}
 
