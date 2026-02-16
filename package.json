@@ -1,1 +1,27 @@
+{
+  "name": "magic2u-design-system",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@8.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "tooling/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "storybook": "turbo run storybook",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "turbo": "^1.11.0",
+    "@changesets/cli": "^2.26.0",
+    "typescript": "^5.3.0",
+    "eslint": "^8.50.0",
+    "prettier": "^3.0.0"
+  }
+}
 
