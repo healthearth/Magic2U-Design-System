@@ -1,20 +1,25 @@
 {
   "name": "magic2u-design-system",
-  "private": true,
   "version": "0.0.0",
-  "packageManager": "pnpm@10.30.0",
-  "main": "dist/index.js", 
-  "module": "dist/index.js", 
-  "types": "dist/index.d.ts", 
-  "exports": { 
-    "./ui/styles/reset.css": "./src/styles/reset.css"
-  }
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./ui/styles/reset.css": "./styles/reset.css"
+  },
+  "files": [
+    "dist",
+    "styles"
+  ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint"
+    "build": "tsc -p tsconfig.json && cp -r styles dist/styles"
   },
   "devDependencies": {
-    "turbo": "^2.0.0"
+    "typescript": "^5.0.0"
   }
 }
