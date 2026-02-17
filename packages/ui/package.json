@@ -9,13 +9,10 @@
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.js"
-    },
-    "./ui/styles/reset.css": "./styles/reset.css"
-  },
-  "files": [
-    "dist",
-    "styles"
-  ],
+    }
+    "./styles/reset.css": "./styles/reset.css"
+  }
+  "files": ["dist", "styles"],
   "scripts": {
     "build": "tsc -p tsconfig.json && cp -r styles dist/styles"
   },
