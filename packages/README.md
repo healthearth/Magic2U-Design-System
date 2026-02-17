@@ -2,7 +2,7 @@
 
 # `packages/`
 
-**The published, versioned npm packages that form the Magic2U Design System's public API.**
+**The published engine, versioned npm packages that form the Magic2U Design System's public API.**
 
 [![Published](https://img.shields.io/badge/registry-npm%20(public)-CB3837?style=flat-square&logo=npm)](https://www.npmjs.com/)
 [![Changesets](https://img.shields.io/badge/versioning-changesets-F1BE42?style=flat-square)](../.changeset/README.md)
