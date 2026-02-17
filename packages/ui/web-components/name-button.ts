@@ -1,8 +1,8 @@
-class MagicButton extends HTMLElement {
+class NameButton extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `<button>${this.textContent}</button>`;
   }
 }
 
-customElements.define('magic-button', MagicButton);
+customElements.define('name-button', NameButton);
 
