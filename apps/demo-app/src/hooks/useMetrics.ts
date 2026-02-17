@@ -61,4 +61,38 @@ export function useMetrics() {
   // the UI from the raw backend schema. If the backend changes,
   // only this hook needs updating — not every component.
   // ----------------------------------------------------------
-  use
+  useEffect(() => { 
+    fetch("/mock-data.json") 
+      .then(res => res.json()) 
+      .then(json => { // ------------------------------------------------------ 
+        // Data Normalization 
+        // ------------------------------------------------------ 
+        // The raw JSON fields are mapped into a clean, predictable 
+        // structure. This ensures that all consumers of this hook 
+        // receive consistent naming and formatting. 
+        //
+        // This is a subtle but powerful architectural pattern: 
+        // UI components depend on *normalized domain data*, 
+        // not raw API responses. 
+        // ------------------------------------------------------ 
+        setData({ 
+          members: json.members, 
+          digitalUsers: json.estimatedDigitalUsers, 
+          hoursSaved: json.estimatedTimeSavedHours, 
+          savings: json.estimatedEngineeringSavingsUSD 
+        }); 
+      }); 
+  }, []); 
+
+ // ---------------------------------------------------------- 
+ // Return API 
+ // ---------------------------------------------------------- 
+ // The hook returns the normalized metrics object. 
+ // 
+ // This pattern makes the hook easy to extend later: 
+ // return { data, refresh, loading, error } 
+ // 
+ // For now, the API stays intentionally minimal. 
+ // ---------------------------------------------------------- 
+ return { data }; 
+}
