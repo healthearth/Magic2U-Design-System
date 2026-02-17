@@ -1,74 +1,7 @@
 {
-  // ------------------------------------------------------------
-  // $schema
-  // ------------------------------------------------------------
-  // Points to the official Changesets JSON schema.
-  // This enables:
-  //   - autocomplete in editors
-  //   - validation of config structure
-  //   - early detection of typos or invalid fields
-  //
-  // It ensures your versioning workflow is stable and predictable.
   "$schema": "https://unpkg.com/@changesets/config/schema.json",
 
-  // ------------------------------------------------------------
-  // changelog
-  // ------------------------------------------------------------
-  // Defines how changelogs are generated for each published package.
-  //
-  // "@changesets/changelog-github":
-  //   - Automatically formats changelogs in GitHub‑friendly Markdown
-  //  
-  // - Links PRs, commits, and contributors 
-  // 
-  // { repo: "yourusername/Magic2U-Design-System" } 
-  // - Tells Changesets which GitHub repo to link to 
-  // - Ensures changelogs contain clickable references
-  // 
-  // This creates professional, traceable release notes. "changelog": 
   [ "@changesets/changelog-github", 
     { "repo": "yourusername/Magic2U-Design-System" } 
   ], 
-  // ------------------------------------------------------------ 
-  // commit
-// ------------------------------------------------------------ 
-// When true, Changesets will automatically create a commit 
-// after applying version bumps. 
-// 
-// Setting this to false means: 
-// - You control commits manually 
-// - Useful for monorepos where version bumps may be reviewed 
-// 
-// This gives you more intentional control over release commits. "commit": false, 
-// ------------------------------------------------------------ 
-// linked
-// ------------------------------------------------------------ 
-// Used when multiple packages must share the same version number. 
-// 
-// Example: 
-// ["@magic2u/ui", "@magic2u/theme-engine"] 
-// 
-// Leaving this empty means: 
-// - Each package versions independently 
-// - Ideal for modular design systems "linked": [], 
-// ------------------------------------------------------------ 
-// access
- // ------------------------------------------------------------ 
-// Controls npm publish access level. 
-// 
-// "public": 
-// - Packages are published publicly on npm 
-// - Required for open‑source design systems 
-// 
-// If set to "restricted", npm would require org‑scoped access. "access": "public", 
-// ------------------------------------------------------------ 
-// baseBranch 
-// ------------------------------------------------------------ 
-// The branch Changesets uses as the source of truth. 
-//
-// Typically: 
-// - "main" for production 
-// - "develop" for GitFlow setups 
-// 
-// All versioning and release PRs will target this branch. "baseBranch": "main" 
 }
