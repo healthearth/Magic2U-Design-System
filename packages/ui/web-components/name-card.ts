@@ -1,4 +1,4 @@
-class MagicCard extends HTMLElement {
+class NameCard extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <div style="padding:16px;border:1px solid #ddd">
@@ -8,5 +8,5 @@ class MagicCard extends HTMLElement {
   }
 }
 
-customElements.define('magic-card', MagicCard);
+customElements.define('name-card', NameCard);
 
