@@ -14,7 +14,7 @@
   }
   "files": ["dist", "styles"],
   "scripts": {
-    "build": "tsc -p tsconfig.json && cp -r styles dist/styles"
+    "build": "tsc -p tsconfig.json && cpx \"styles/**/*\" dist/styles"
   },
   "devDependencies": {
     "typescript": "^5.0.0"
