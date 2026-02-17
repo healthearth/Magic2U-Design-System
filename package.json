@@ -2,18 +2,13 @@
   "name": "magic2u-design-system",
   "private": true,
   "version": "0.0.0",
-  "packageManager": "pnpm@10.30.0",
-  "main": "dist/index.js", 
-  "module": "dist/index.js", 
-  "types": "dist/index.d.ts", 
-  "exports": { 
-    "./ui/styles/reset.css": "./src/styles/reset.css"
+  "packageManager": "pnpm@8.15.8",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint"
-  },
+  }
   "devDependencies": {
-    "turbo": "^2.0.0"
+    "turbo": "^2.8.9"
   }
 }
