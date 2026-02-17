@@ -13,8 +13,6 @@
     
     "lint": {
     },
-    
-    { 
      
     "storybook": {
       "cache": false
