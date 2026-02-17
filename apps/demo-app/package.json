@@ -1,89 +1,19 @@
 {
-  // ------------------------------------------------------------
-  // name
-  // ------------------------------------------------------------
-  // The name of the project. Since this is a demo application
-  // inside a monorepo, the name is intentionally simple and scoped
-  // to its purpose. Marking it as "demo-app" makes it clear that
-  // this is not a publishable package but a consumer of the
-  // Magic2U design system.
   "name": "demo-app",
-
-  // ------------------------------------------------------------
-  // private
-  // ------------------------------------------------------------
-  // Setting "private": true prevents accidental publishing to npm.
-  // This is essential for demo apps, internal tools, and examples
-  // that are not meant to be distributed as standalone packages.
   "private": true,
-
-  // ------------------------------------------------------------
-  // version
-  // ------------------------------------------------------------
-  // Semantic version of the application. Since this is not a
-  // publishable package, the version is mostly informational.
-  // It can still be useful for tracking deployments or snapshots.
   "version": "0.1.0",
-
-  // ------------------------------------------------------------
-  // type
-  // ------------------------------------------------------------
-  // Declares the module system for Node. Setting "module" enables
-  // native ES modules (ESM), which aligns with modern tooling like
-  // Vite and ensures compatibility with import/export syntax.
   "type": "module",
-
-  // ------------------------------------------------------------
-  // scripts
-  // ------------------------------------------------------------
-  // Defines the core lifecycle commands for the application.
-  // These scripts are powered by Vite, a fast, modern dev server
-  // and build tool optimized for React + TypeScript.
-  //
-  // dev     → Starts the local development server
-  // build   → Produces an optimized production build
-  // preview → Serves the production build locally for testing
-  //
-  // These commands form the backbone of the developer workflow.
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
 
-  // ------------------------------------------------------------
-  // dependencies
-  // ------------------------------------------------------------
-  // Runtime dependencies required by the application.
-  //
-  // react / react-dom:
-  //   - Core libraries for building UI components
-  //   - React 18 enables concurrent rendering and modern APIs
-  //
-  // These are the only runtime dependencies because the demo app
-  // relies heavily on the Magic2U design system, which is imported
-  // from the monorepo rather than npm.
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-
-  // ------------------------------------------------------------
-  // devDependencies
-  // ------------------------------------------------------------
-  // Tooling dependencies used during development and build time.
-  //
-  // typescript:
-  //   - Provides static typing and compiler support
-  //
-  // vite:
-  //   - Lightning-fast dev server and bundler
-  //   - Ideal for React + TypeScript projects
-  //
-  // @types/react / @types/react-dom:
-  //   - TypeScript type definitions for React APIs
-  //
-  // These tools ensure a smooth, modern developer experience.
+  
   "devDependencies": {
     "typescript": "^5.3.0",
     "vite": "^5.0.0",
