@@ -19,10 +19,12 @@ export default function LandingPage() {
 
       <<section className="landing-hero">
         <h1 className="hero-title">
-          {" "} with Real Magic
           <span className="design-systems-cloud">
             <span className="design-systems-text">Design Systems</span>
-          </span>
+          </span>{" "} 
+          with Real Magic
+        </h1>
+ 
         </h1>
         <p>
           Magic2U Cloud is a hosted, white‑label design system platform that lets teams adopt,
