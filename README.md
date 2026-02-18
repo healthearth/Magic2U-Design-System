@@ -24,7 +24,7 @@ final draft
 
 ## What Is Magic2U Design System?
 
-Magic2U DS is a production-ready design system platform built to serve enterprise-scale healthcare digital products. It is not just a component library — it is a **full-stack design infrastructure** that unifies token governance, multi-theme architecture, accessibility automation, component telemetry, and performance observability across every team and surface that touches the product.
+Magic2U DS is a production-ready cloud based design system platform built to serve enterprise-scale healthcare digital products. It is not just a component library — it is a **full-stack design infrastructure** that unifies token governance, multi-theme architecture, accessibility automation, component telemetry, and performance observability across every team and surface that touches the product.
 
 Built for the scale of organizations serving **51 million+ members**, Magic2U DS reduces engineering duplication, enforces consistent UX, and gives leadership real data on design system adoption and ROI.
 
