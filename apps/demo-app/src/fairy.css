@@ -25,6 +25,7 @@
     0 0 18px 10px rgba(255, 255, 255, 0.95),
     0 0 30px 18px rgba(255, 200, 255, 0.9),
     0 0 45px 25px rgba(255, 150, 255, 0.8);
+  pointer-events: none;
 }
 
 /* Fairy Glow */
@@ -36,6 +37,7 @@
   border-radius: 50%;
   filter: blur(12px);
   opacity: 1;
+  pointer-events: none;
 }
 
 /* Fairy Sparkle */
@@ -47,6 +49,7 @@
   border-radius: 50%;
   opacity: 0.9;
   animation: sparkle 1.2s infinite ease-in-out;
+  pointer-events: none;
 }
 
 /* Sparkle Trail */
