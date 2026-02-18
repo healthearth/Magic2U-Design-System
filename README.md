@@ -53,6 +53,10 @@ Magic2U-Design-System/
 
 ---
 
+## Who is this process for? 
+
+> Companies without design systems yet and may include teams with multiple digital products and inconsistent UI that seek governance, speed, and consistency.
+
 ## Quick Start
 
 ### Prerequisites
