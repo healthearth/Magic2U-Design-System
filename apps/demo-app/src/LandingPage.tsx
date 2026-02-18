@@ -1,5 +1,6 @@
 import React from "react"
 import "./app.css"
+import FairyChatbot from "./FairyChatbot"
 
 export default function LandingPage() {
   return (
@@ -107,7 +108,7 @@ export default function LandingPage() {
         <section id="sales" className="landing-section alt center">
           <h2>Talk to Sales</h2>
           <p>
-            Want a custom demo, enterprise pricing, or white‑label onboarding?  
+            Want a custom demo, enterprise pricing, or white‑label onboarding  
             Email us anytime:
           </p>
           <a className="cta-primary" href="mailto:Magic2UDesignSystems@gmail.com">
@@ -128,7 +129,7 @@ export default function LandingPage() {
         </footer>
       </div>
     </>
-  );
+  )
 }
 
 function Feature({ title, description }) {
