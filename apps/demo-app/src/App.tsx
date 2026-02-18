@@ -1,13 +1,11 @@
+import LandingPage from "./LandingPage";
 import FairyChatbot from "./FairyChatbot";
-import LandingPage from "./LandingPage"
-import "./app.css"
+import "./app.css";
 
 export default function App() {
   return (
     <>
       <LandingPage />
-
-      {/* Fairy */}
       <FairyChatbot />
     </>
   );
