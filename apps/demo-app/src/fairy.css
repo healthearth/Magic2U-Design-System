@@ -13,8 +13,7 @@
 
 .fairy-chat {
   position: fixed;
-  bottom: 120px;
-  right: 40px;
+  transform: translate(-50%, -120%);
   width: 280px;
   max-height: 360px;
   background: radial-gradient(circle at top left, #2b1b4b, #0b0615);
