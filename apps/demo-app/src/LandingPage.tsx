@@ -178,6 +178,9 @@ export default function LandingPage() {
             <span>© {new Date().getFullYear()} Magic2U Cloud Design System</span>
             <span>Apache‑2.0 Licensed · Patent Pending</span>
           </div>
+
+          <CloudStatus />
+          
           <div className="footer-bottom">
             <a href="mailto:Magic2UDesignSystems@gmail.com">
               Magic2UDesignSystems@gmail.com
