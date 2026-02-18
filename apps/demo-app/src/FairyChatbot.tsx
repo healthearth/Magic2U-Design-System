@@ -13,6 +13,11 @@ export default function FairyChatbot() {
       from: "Fairy", text: "Hello! my name is Fairy. I live in the Magic2U Cloud as ✨ a MagicAl Touch Able to Respond AlOUD." 
     }
   ])
+
+  useEffect(() => {
+  speak(messages[0].text)
+  }, [])
+
   const [input, setInput] = useState("")
 
   const speak = (text) => {
