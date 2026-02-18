@@ -55,6 +55,11 @@ export default function LandingPage() {
           <div className="demo-controls">
         
             <h3>Theme</h3>
+            <p className="demo-explainer">
+              A <strong>theme</strong> controls the overall look and feel of an interface — things like
+              background color, text color, and contrast. Themes help products adapt to different
+              environments (light vs. dark rooms) and accessibility needs (high contrast).
+            </p>
             <div className="demo-buttons">
               <button onClick={() => setTheme("light")}>Light</button>
               <button onClick={() => setTheme("dark")}>Dark</button>
@@ -62,6 +67,11 @@ export default function LandingPage() {
             </div>
         
             <h3>Brand</h3>
+            <p className="demo-explainer">
+              A <strong>brand</strong> defines the identity of a company — its colors, personality, and
+              visual style. Magic2U Cloud can instantly switch brands, allowing one design system to
+              power many different companies or business units.
+            </p>
             <div className="demo-buttons">
               <button onClick={() => setBrand("united")}>UnitedHealthcare</button>
               <button onClick={() => setBrand("default")}>Your Brand Here</button>
