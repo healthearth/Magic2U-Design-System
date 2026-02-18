@@ -3,6 +3,11 @@ import "./fairy.css"
 
 export default function FairyChatbot() {
   const [open, setOpen] = useState(false)
+    import React, { useState } from "react"
+import "./fairy.css"
+
+export default function FairyChatbot() {
+  const [open, setOpen] = useState(false)
   const [position, setPosition] = useState({ x: 80, y: 300 })
   const [dragging, setDragging] = useState(false)
   const [offset, setOffset] = useState({ x: 0, y: 0 })
