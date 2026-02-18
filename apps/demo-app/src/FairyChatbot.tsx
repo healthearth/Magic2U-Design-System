@@ -98,7 +98,7 @@ export default function FairyChatbot() {
       </div>
 
       {/* Chat Bubble */}
-      {open && (
+     {open && (
         <div className="fairy-chat">
           <div className="chat-messages">
             {messages.map((m, i) => (
@@ -106,18 +106,18 @@ export default function FairyChatbot() {
                 {m.text}
               </div>
             ))}
+          </div>
+      
+          <div className="chat-input">
+            <input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="What would you like to do?"
+            />
+            <button onClick={sendMessage}>Send</button>
+          </div>
         </div>
-
-        <div className="chat-input">
-          <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="What would you like to do?"
-          />
-          <button onClick={sendMessage}>Send</button>
-        </div>
-      </div>
-    )}
+      )}
     </>
   );
 }
