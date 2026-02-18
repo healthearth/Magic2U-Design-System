@@ -1,3 +1,13 @@
+/* Main Fairy */
+.fairy {
+  position: fixed;
+  width: 60px;      /* bigger click target */
+  height: 60px;
+  cursor: pointer;
+  z-index: 9999;
+  animation: hover-wiggle 3s ease-in-out infinite;
+}
+
 /* Sparkle Trail */
 .fairy-trail {
   position: fixed;
