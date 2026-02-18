@@ -10,8 +10,6 @@ export default function LandingPage() {
   
   return (
     <>
-      <FairyChatbot />
-
       <div className={`landing-root theme-${theme} brand-${brand}`}>
         <header className="landing-header">
           <div className="logo">✨ Magic2U Cloud</div>
