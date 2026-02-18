@@ -36,7 +36,7 @@ export default function FairyChatbot() {
   } catch (err) {
     setMessages(prev => [
       ...prev,
-      { from: "fairy", text: "Hmm… my magic fizzled for a moment." }
+      { from: "fairy", text: "Hmm… I'm going to need you to believe in the magic more than that!" }
     ]);
   }
 }
