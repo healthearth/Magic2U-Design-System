@@ -101,6 +101,30 @@ body {
   100% { transform: translateY(0); }
 }
 
+/* ---------------------------------- */ 
+/* DEMO COMPONENTS */ 
+/* ---------------------------------- */ 
+.demo-button { 
+  background: var(--brand-color); 
+  color: var(--text); 
+  padding: 12px 20px; 
+  border-radius: 8px; 
+  border: none; 
+  cursor: pointer; 
+} .demo-input { 
+  padding: 12px; 
+  border-radius: 8px; 
+  border: 1px solid var(--brand-color); 
+  color: var(--text); 
+  background: var(--bg); 
+} .demo-card { 
+  padding: 20px; 
+  border-radius: 12px; 
+  background: var(--bg); 
+  border: 2px solid var(--brand-color); 
+  color: var(--text); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
 /* -------------------------------------------------------
    HEADER
