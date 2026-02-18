@@ -15,6 +15,14 @@ export default function FairyChatbot() {
   ])
   const [input, setInput] = useState("")
 
+  const speak = (text) => {
+  const utter = new SpeechSynthesisUtterance(text)
+  utter.pitch = 1.4
+  utter.rate = 1.1
+  speechSynthesis.speak(utter)
+  }
+
+
   /* -----------------------------
      1. DRAGGABLE FAIRY
   ----------------------------- */
