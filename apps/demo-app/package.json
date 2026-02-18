@@ -1,7 +1,6 @@
 {
   "name": "demo-app",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,13 +9,20 @@
     "require": "./dist/index.js",
     "./styles/reset.css": "./styles/reset.css"
   },
+  
   "files": [
     "dist",
     "styles"
   ],
   "scripts": {
-    "build": "tsc -b",
-    "dev": "tsc -w"
+    "build": "vite build",
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.4",
+    "typescript": "^5.9.3"
   }
 }
 
