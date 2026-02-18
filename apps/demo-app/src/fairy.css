@@ -39,6 +39,20 @@
   transform: translate(-50%, -110%);
 }
 
+.fairy-chat-preview {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 300px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-size: 13px;
+  color: #f0e7ff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+  z-index: 99999 !important;
+}
+
 .chat-messages {
   flex: 1;
   overflow-y: auto;
