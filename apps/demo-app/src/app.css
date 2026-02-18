@@ -49,6 +49,16 @@ body {
   --brand-color: #111827; 
 }
 
+.brand-health {
+  --brand-color: #0054a6; /* UHC blue */
+}
+.brand-space {
+  --brand-color: #8a2be2; /* cosmic purple */
+}
+.brand-custom {
+  --brand-color: #ff4fbf; /* neon pink */
+}
+
 /* ---------------------------------- */ 
 /* DEMO COMPONENTS */ 
 /* ---------------------------------- */ 
