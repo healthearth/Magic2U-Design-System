@@ -22,8 +22,8 @@ export default function FairyChatbot() {
     const interval = setInterval(() => {
       setPosition((prev) => {
         const next = {
-          x: prev.x + (target.x - prev.x) * 0.05,
-          y: prev.y + (target.y - prev.y) * 0.05,
+          x: prev.x + (target.x - prev.x) * 0.02,
+          y: prev.y + (target.y - prev.y) * 0.02,
         };
 
         // Sparkle trail
