@@ -146,11 +146,13 @@ export default function FairyChatbot() {
       {/* CHAT WINDOW */}
       {open && (
         <div className="fairy-chat">
+          <div className="fairy" onClick={() => setOpen(!open)}>
           <div className="chat-header">
             ✨ Magic2U Fairy Assistant
             <button className="voice-btn" onClick={startListening}>🎤</button>
           </div>
-
+          </div>  
+          
           <div className="chat-body">
             {messages.map((m, i) => (
               <div key={i} className={`msg ${m.from}`}>{m.text}</div>
