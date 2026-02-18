@@ -3,11 +3,6 @@ import "./fairy.css"
 
 export default function FairyChatbot() {
   const [open, setOpen] = useState(false)
-    import React, { useState } from "react"
-import "./fairy.css"
-
-export default function FairyChatbot() {
-  const [open, setOpen] = useState(false)
   const [position, setPosition] = useState({ x: 80, y: 300 })
   const [dragging, setDragging] = useState(false)
   const [offset, setOffset] = useState({ x: 0, y: 0 })
@@ -128,7 +123,7 @@ export default function FairyChatbot() {
 
   return (
     <>
-      {/* FAIRY */}
+      {/* FAIRY ICON */}
       <div
         className="fairy"
         ref={fairyRef}
@@ -146,17 +141,25 @@ export default function FairyChatbot() {
       {/* CHAT WINDOW */}
       {open && (
         <div className="fairy-chat">
-          <div className="fairy" onClick={() => setOpen(!open)}>
           <div className="chat-header">
             ✨ Magic2U Fairy Assistant
             <button className="voice-btn" onClick={startListening}>🎤</button>
           </div>
-          </div>  
-          
+
           <div className="chat-body">
             {messages.map((m, i) => (
               <div key={i} className={`msg ${m.from}`}>{m.text}</div>
             ))}
+
+            {/* INSERTED LINES — EXACTLY WHERE THEY BELONG */}
+            <p>Need a human? I can summon one instantly:</p>
+
+            <a
+              href="mailto:Magic2UDesignSystems@gmail.com"
+              className="chat-email"
+            >
+              Magic2UDesignSystems@gmail.com
+            </a>
           </div>
 
           <div className="chat-input">
