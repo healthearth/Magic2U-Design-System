@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { talkToFairy } from "./fairy";
+
 
 type TrailPoint = { id: number; x: number; y: number };
 
@@ -7,6 +9,39 @@ export default function FairyChatbot() {
   const [position, setPosition] = useState({ x: 300, y: 300 });
   const [open, setOpen] = useState(false);
   const [trail, setTrail] = useState<TrailPoint[]>([]);
+
+  const [messages, setMessages] = useState([
+  { from: "fairy", text: "Hi, I’m Fairy — a light inside the Magic2U Cloud." }
+  ]);
+
+  const [input, setInput] = useState("");
+
+  async function sendMessage() {
+  if (!input.trim()) return;
+
+  const userText = input;
+  setMessages(prev => [...prev, { from: "user", text: userText }]);
+  setInput("");
+
+  try {
+    const reply = await talkToFairy(userText);
+
+    setMessages(prev => [...prev, { from: "fairy", text: reply }]);
+
+    const utter = new SpeechSynthesisUtterance(reply);
+    utter.rate = 1.1;
+    utter.pitch = 1.4;
+    speechSynthesis.speak(utter);
+
+  } catch (err) {
+    setMessages(prev => [
+      ...prev,
+      { from: "fairy", text: "Hmm… my magic fizzled for a moment." }
+    ]);
+  }
+}
+
+
 
   // Track mouse movement
   useEffect(() => {
@@ -65,9 +100,24 @@ export default function FairyChatbot() {
       {/* Chat Bubble */}
       {open && (
         <div className="fairy-chat">
-          I am Fairy. I live on the Design System Cloud as a magical touch.
+          <div className="chat-messages">
+            {messages.map((m, i) => (
+              <div key={i} className={`msg ${m.from}`}>
+                {m.text}
+              </div>
+            ))}
         </div>
-      )}
+
+        <div className="chat-input">
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="What would you like to do?"
+          />
+          <button onClick={sendMessage}>Send</button>
+        </div>
+      </div>
+    )}
     </>
   );
 }
