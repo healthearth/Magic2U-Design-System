@@ -99,7 +99,10 @@ export default function FairyChatbot() {
 
       {/* Chat Bubble */}
      {open && (
-        <div className="fairy-chat">
+        <div
+          className="fairy-chat"
+          style={{ left: position.x, top: position.y }}
+        >
           <div className="chat-messages">
             {messages.map((m, i) => (
               <div key={i} className={`msg ${m.from}`}>
