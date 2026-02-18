@@ -19,25 +19,33 @@ body {
 /* THEME + BRAND VARIABLES */ 
 /* ---------------------------------- */ 
 
-.theme-light { 
-  --bg: #ffffff; 
-  --text: #222; 
-  --primary: #6b4eff; 
-} .theme-dark { 
-  --bg: #1a1a1a; 
-  --text: #f5f5f5; 
-  --primary: #9d7dff; 
-} .theme-high-contrast { 
-  --bg: #000; 
-  --text: #fff; 
-  --primary: yellow; 
-} .brand-default { 
+.theme-light {
+  --bg: #ffffff;
+  --text: #222;
+  --primary: #6b4eff;
+}
+.theme-dark {
+  --bg: #121212;
+  --text: #e0e0e0;
+  --primary: #bb86fc;
+}
+.theme-high-contrast {
+  --bg: #000000;
+  --text: #ffffff;
+  --primary: #00ffff; /* neon cyan */
+  outline: 3px solid yellow;
+}
+
+.brand-default { 
   --brand-color: #6b4eff; 
-} .brand-united { 
+} 
+.brand-united { 
   --brand-color: #0054a6; 
-} .brand-custom { 
+} 
+.brand-custom { 
   --brand-color: #ff4fbf; 
-} .brand-white-label { 
+} 
+.brand-white-label { 
   --brand-color: #111827; 
 }
 
