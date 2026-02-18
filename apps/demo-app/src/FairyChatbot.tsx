@@ -9,7 +9,9 @@ export default function FairyChatbot() {
   const fairyRef = useRef(null)
 
   const [messages, setMessages] = useState([
-    { from: "fairy", text: "Hello! I’m your Magic2U Cloud Fairy ✨ How can I help you today?" }
+    { 
+      from: "Fairy", text: "Hello! my name is Fairy. I live in the Magic2U Cloud as ✨ a MagicAl Touch Able to Respond AlOUD." 
+    }
   ])
   const [input, setInput] = useState("")
 
