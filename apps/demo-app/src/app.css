@@ -1,0 +1,114 @@
+/* Root layout */
+.magic2u-root {
+  font-family: system-ui, sans-serif;
+  padding: 0;
+  margin: 0;
+  background: var(--background, #ffffff);
+  color: var(--foreground, #111111);
+}
+
+/* Header */
+.magic2u-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  background: #1e1e1e;
+  color: white;
+}
+
+.magic2u-header nav a {
+  margin-right: 1rem;
+  color: #ffffffcc;
+  text-decoration: none;
+}
+
+.magic2u-header nav a:hover {
+  color: white;
+}
+
+.primary-cta {
+  background: #2563eb;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+}
+
+.hero-badges span {
+  background: rgba(255,255,255,0.15);
+  padding: 0.4rem 0.75rem;
+  margin: 0.25rem;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* Sections */
+.magic2u-section {
+  padding: 3rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.magic2u-section h2 {
+  margin-bottom: 1rem;
+}
+
+/* Component Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.component-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  background: white;
+}
+
+.component-preview {
+  margin: 1rem 0;
+}
+
+/* Tokens */
+.tokens-grid {
+  display: flex;
+  gap: 2rem;
+}
+
+.token-swatch {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  margin-right: 0.75rem;
+}
+
+/* Theme Switcher */
+.theme-buttons button {
+  margin-right: 0.5rem;
+}
+
+/* Footer */
+.magic2u-footer {
+  padding: 2rem;
+  text-align: center;
+  background: #1e1e1e;
+  color: white;
+  margin-top: 3rem;
+}
