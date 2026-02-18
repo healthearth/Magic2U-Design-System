@@ -1,7 +1,6 @@
-import React from "react"
 import { useTheme } from "./ThemeProvider"
 
-export function Button({ children }: { children: React.ReactNode }) {
+export function Button({ children }) {
   const theme = useTheme()
 
   return (
@@ -9,13 +8,14 @@ export function Button({ children }: { children: React.ReactNode }) {
       style={{
         background: theme.colors.primary,
         color: "#fff",
-        padding: "0.75rem 1.5rem",
-        borderRadius: theme.radius.md,
+        padding: "12px 20px",
         border: "none",
-        cursor: "pointer",
+        borderRadius: "8px",
+        cursor: "pointer"
       }}
     >
       {children}
     </button>
   )
 }
+
