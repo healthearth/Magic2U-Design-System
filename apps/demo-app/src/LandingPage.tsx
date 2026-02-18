@@ -23,10 +23,7 @@ export default function LandingPage() {
 
         <section className="landing-hero">
           <h1 className="hero-title">
-            <span className="design-systems-cloud">
-              <span className="design-systems-text">Design Systems</span>
-            </span>{" "}
-            with Real Magic
+            Design Systems with Real Magic💨
           </h1>
 
           <p>
