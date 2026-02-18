@@ -5,5 +5,5 @@ src/
 ├── pages/           # Route-level pages
 ├── styles/          # Global CSS + design-system styling
 ├── telemetry/       # Analytics + event logging
-├── App.tsx          # Root application component
+├── App.tsx          # Root application component. It loads your LandingPage and nothing else.
 └── main.tsx         # React entrypoint
