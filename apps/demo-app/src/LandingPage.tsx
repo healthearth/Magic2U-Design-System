@@ -67,7 +67,13 @@ export default function LandingPage() {
               <button onClick={() => setBrand("default")}>Your Brand Here</button>
               <button onClick={() => setBrand("custom")}>Custom</button>
             </div>
-        
+
+            <h3>Color Palettes</h3>
+            <div className="demo-buttons">
+              <button onClick={() => setBrand("health")}>Health Insurance</button>
+              <button onClick={() => setBrand("space")}>Free Space</button>
+              <button onClick={() => setBrand("custom")}>Custom</button>
+            </div>
           </div> {/* END demo-controls */}
         
           {/* COMPONENT GALLERY */}
