@@ -107,7 +107,15 @@ export default function LandingPage() {
       </section>
 
       <footer className="landing-footer">
-        © {new Date().getFullYear()} Magic2U Cloud Design System · Apache‑2.0 License
+        <div className="footer-top">
+          <span>© {new Date().getFullYear()} Magic2U Cloud Design System</span>
+          <span>Apache‑2.0 Licensed · Patent Pending</span>
+        </div>
+        <div className="footer-bottom">
+          <a href="mailto:Magic2UDesignSystems@gmail.com">
+            Magic2UDesignSystems@gmail.com
+          </a>
+        </div>
       </footer>
     </div>
   )
