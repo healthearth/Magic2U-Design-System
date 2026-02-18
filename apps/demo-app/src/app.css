@@ -1,26 +1,81 @@
-/* Root layout */
-.magic2u-root {
-  font-family: system-ui, sans-serif;
-  padding: 0;
-  margin: 0;
-  background: #6b2fb8; /* Magic2U Purple */
-  color: white;
+/* -------------------------------------------------------
+   MAGIC2U CLOUD — GLOBAL THEME TOKENS
+------------------------------------------------------- */
+
+:root {
+  --purple-50:  #faf5ff;
+  --purple-100: #f3e8ff;
+  --purple-200: #e9d5ff;
+  --purple-300: #d8b4fe;
+  --purple-400: #c084fc;
+  --purple-500: #a855f7;
+  --purple-600: #9333ea;
+  --purple-700: #7e22ce;
+  --purple-800: #6b21a8;
+  --purple-900: #581c87;
+
+  --background: var(--purple-800);
+  --foreground: white;
+  --accent: var(--purple-400);
+
+  --radius: 8px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* Header */
+/* -------------------------------------------------------
+   THEME VARIANTS
+------------------------------------------------------- */
+
+.theme-light {
+  --background: var(--purple-100);
+  --foreground: #1a1a1a;
+  --accent: var(--purple-600);
+}
+
+.theme-dark {
+  --background: var(--purple-900);
+  --foreground: #f3e8ff;
+  --accent: var(--purple-300);
+}
+
+.theme-high-contrast {
+  --background: #ffffff;
+  --foreground: #000000;
+  --accent: #0000ff;
+}
+
+/* -------------------------------------------------------
+   ROOT LAYOUT
+------------------------------------------------------- */
+
+.magic2u-root {
+  background: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* -------------------------------------------------------
+   HEADER
+------------------------------------------------------- */
+
 .magic2u-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem 2rem;
-  background: #1e1e1e;
+  background: var(--purple-900);
   color: white;
+  box-shadow: var(--shadow);
 }
 
 .magic2u-header nav a {
   margin-right: 1rem;
   color: #ffffffcc;
   text-decoration: none;
+  font-weight: 500;
 }
 
 .magic2u-header nav a:hover {
@@ -28,19 +83,23 @@
 }
 
 .primary-cta {
-  background: #2563eb;
+  background: var(--accent);
   color: white;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border-radius: var(--radius);
   border: none;
   cursor: pointer;
+  font-weight: 600;
 }
 
-/* Hero */
+/* -------------------------------------------------------
+   HERO SECTION
+------------------------------------------------------- */
+
 .hero {
   padding: 4rem 2rem;
   text-align: center;
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  background: linear-gradient(135deg, var(--purple-700), var(--purple-500));
   color: white;
 }
 
@@ -48,21 +107,41 @@
   background: rgba(255,255,255,0.15);
   padding: 0.4rem 0.75rem;
   margin: 0.25rem;
-  border-radius: 6px;
+  border-radius: var(--radius);
   display: inline-block;
 }
 
-/* Sections */
+/* -------------------------------------------------------
+   SUBNAV
+------------------------------------------------------- */
+
+.magic2u-subnav {
+  padding: 0.75rem 2rem;
+  background: var(--purple-900);
+  color: #e9d5ff;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* -------------------------------------------------------
+   SECTIONS
+------------------------------------------------------- */
+
 .magic2u-section {
   padding: 3rem 2rem;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .magic2u-section h2 {
   margin-bottom: 1rem;
+  font-size: 1.75rem;
 }
 
-/* Component Gallery */
+/* -------------------------------------------------------
+   COMPONENT GALLERY
+------------------------------------------------------- */
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -70,20 +149,33 @@
 }
 
 .component-card {
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius);
   padding: 1rem;
-  background: white;
+  background: rgba(255,255,255,0.05);
+  box-shadow: var(--shadow);
 }
 
 .component-preview {
   margin: 1rem 0;
 }
 
-/* Tokens */
+.component-code {
+  background: rgba(0,0,0,0.3);
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  color: #e9d5ff;
+}
+
+/* -------------------------------------------------------
+   TOKENS
+------------------------------------------------------- */
+
 .tokens-grid {
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .token-swatch {
@@ -95,20 +187,44 @@
 .swatch {
   width: 32px;
   height: 32px;
-  border-radius: 4px;
+  border-radius: var(--radius);
   margin-right: 0.75rem;
 }
 
-/* Theme Switcher */
+.spacing-box {
+  width: 32px;
+  background: var(--accent);
+  border-radius: var(--radius);
+}
+
+/* -------------------------------------------------------
+   THEME SWITCHER
+------------------------------------------------------- */
+
 .theme-buttons button {
   margin-right: 0.5rem;
 }
 
-/* Footer */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+/* -------------------------------------------------------
+   FOOTER
+------------------------------------------------------- */
+
 .magic2u-footer {
   padding: 2rem;
   text-align: center;
-  background: #1e1e1e;
+  background: var(--purple-900);
   color: white;
-  margin-top: 3rem;
+  margin-top: auto;
 }
