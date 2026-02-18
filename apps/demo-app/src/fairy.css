@@ -9,6 +9,10 @@
   pointer-events: auto;
 }
 
+.fairy-chat {
+  z-index: 9998;
+}
+
 .fairy:hover .fairy-core {
   transform: scale(1.2);
   transition: transform 0.2s ease;
