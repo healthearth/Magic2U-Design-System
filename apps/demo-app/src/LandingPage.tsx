@@ -3,11 +3,15 @@ import "./app.css"
 import FairyChatbot from "./FairyChatbot"
 
 export default function LandingPage() {
+  
+  const [theme, setTheme] = useState("light"); 
+  const [brand, setBrand] = useState("default"); 
+  
   return (
     <>
       <FairyChatbot />
 
-      <div className="landing-root theme-light">
+      <div className={`landing-root theme-${theme} brand-${brand}`}>
         <header className="landing-header">
           <div className="logo">✨ Magic2U Cloud</div>
           <nav>
@@ -41,31 +45,42 @@ export default function LandingPage() {
 
         <section id="demo" className="landing-section">
           <h2>Live Demo</h2>
-
+        
           <p className="center">
             Explore how Magic2U Cloud instantly transforms into any brand using tokens,
             themes, and white‑label configuration.
           </p>
-
+        
+          {/* DEMO CONTROLS */}
           <div className="demo-controls">
+        
             <h3>Theme</h3>
-            <button>Light</button>
-            <button>Dark</button>
-            <button>High Contrast</button>
-
+            <div className="demo-buttons">
+              <button onClick={() => setTheme("light")}>Light</button>
+              <button onClick={() => setTheme("dark")}>Dark</button>
+              <button onClick={() => setTheme("high-contrast")}>High Contrast</button>
+            </div>
+        
             <h3>Brand</h3>
-            <button>UnitedHealthcare</button>
-            <button>Your Brand Here</button>
-            <button>Custom</button>
-          </div>
-
+            <div className="demo-buttons">
+              <button onClick={() => setBrand("united")}>UnitedHealthcare</button>
+              <button onClick={() => setBrand("default")}>Your Brand Here</button>
+              <button onClick={() => setBrand("custom")}>Custom</button>
+            </div>
+        
+          </div> {/* END demo-controls */}
+        
+          {/* COMPONENT GALLERY */}
           <div className="demo-gallery">
             <h3>Components</h3>
+        
             <button className="demo-button">Primary Button</button>
             <input className="demo-input" placeholder="Input field" />
             <div className="demo-card">Card Component</div>
           </div>
+        
         </section>
+
 
 
         <section id="features" className="landing-section">
