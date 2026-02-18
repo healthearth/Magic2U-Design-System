@@ -29,6 +29,7 @@ body {
 
 /* Base title styling */
 .hero-title {
+  white-space: nowrap;
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.1;
