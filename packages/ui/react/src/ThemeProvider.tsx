@@ -1,15 +1,8 @@
-import React, { createContext, useContext } from "react"
-import { BrandTheme } from "@magic2u/engine"
+import { createContext, useContext } from "react"
 
-const ThemeContext = createContext<BrandTheme | null>(null)
+const ThemeContext = createContext(null)
 
-export function ThemeProvider({
-  theme,
-  children,
-}: {
-  theme: BrandTheme
-  children: React.ReactNode
-}) {
+export function ThemeProvider({ theme, children }) {
   return (
     <ThemeContext.Provider value={theme}>
       {children}
@@ -18,7 +11,5 @@ export function ThemeProvider({
 }
 
 export function useTheme() {
-  const theme = useContext(ThemeContext)
-  if (!theme) throw new Error("ThemeProvider missing")
-  return theme
+  return useContext(ThemeContext)
 }
