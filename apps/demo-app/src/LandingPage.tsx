@@ -17,7 +17,7 @@ export default function LandingPage() {
         </a>
       </header>
 
-      <<section className="landing-hero">
+      <section className="landing-hero">
         <h1 className="hero-title">
           <span className="design-systems-cloud">
             <span className="design-systems-text">Design Systems</span>
