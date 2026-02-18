@@ -1,0 +1,105 @@
+/* Floating Fairy Container */
+.fairy {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  z-index: 9999;
+  animation: hover-wiggle 3s ease-in-out infinite;
+}
+
+/* Glow */
+.fairy-glow {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  background: radial-gradient(circle, rgba(255,255,255,0.9), rgba(255,255,255,0));
+  border-radius: 50%;
+  filter: blur(8px);
+  opacity: 0.9;
+}
+
+/* Core Light */
+.fairy-core {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 12px 6px #ffd6ff, 0 0 20px 10px #ffb3ff;
+}
+
+/* Sparkles */
+.fairy-sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: sparkle 1.4s infinite ease-in-out;
+}
+
+.sparkle1 { top: -10px; left: 12px; animation-delay: 0s; }
+.sparkle2 { top: 20px; left: -8px; animation-delay: 0.3s; }
+.sparkle3 { top: 18px; left: 22px; animation-delay: 0.6s; }
+
+@keyframes sparkle {
+  0% { transform: scale(0.4); opacity: 0.4; }
+  50% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.4); opacity: 0.4; }
+}
+
+@keyframes hover-wiggle {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Chat Window */
+.fairy-chat {
+  position: fixed;
+  bottom: 90px;
+  right: 40px;
+  width: 280px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.15);
+  z-index: 9998;
+  overflow: hidden;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.chat-header {
+  background: #111827;
+  color: white;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.chat-body {
+  padding: 1rem;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.chat-body ul {
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.2rem;
+}
+
+.chat-email {
+  color: #6b21a8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.chat-email:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
