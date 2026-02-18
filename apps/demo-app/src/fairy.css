@@ -6,6 +6,42 @@
   cursor: pointer;
   z-index: 9999;
   animation: hover-wiggle 3s ease-in-out infinite;
+  pointer-events: auto;
+}
+
+/* Fairy Core */
+.fairy-core {
+  position: absolute;
+  width: 22px;      /* bigger core */
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+    0 0 18px 10px rgba(255, 255, 255, 0.95),
+    0 0 30px 18px rgba(255, 200, 255, 0.9),
+    0 0 45px 25px rgba(255, 150, 255, 0.8);
+}
+
+/* Fairy Glow */
+.fairy-glow {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, rgba(255,255,255,0.9), rgba(255,255,255,0));
+  border-radius: 50%;
+  filter: blur(12px);
+  opacity: 1;
+}
+
+/* Fairy Sparkle */
+.fairy-sparkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: sparkle 1.2s infinite ease-in-out;
 }
 
 /* Sparkle Trail */
