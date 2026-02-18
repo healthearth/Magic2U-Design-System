@@ -3,8 +3,8 @@
   font-family: system-ui, sans-serif;
   padding: 0;
   margin: 0;
-  background: var(--background, #ffffff);
-  color: var(--foreground, #111111);
+  background: #6b2fb8; /* Magic2U Purple */
+  color: white;
 }
 
 /* Header */
