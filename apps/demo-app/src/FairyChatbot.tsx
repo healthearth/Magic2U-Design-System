@@ -25,11 +25,14 @@ export default function FairyChatbot() {
         };
 
         // Add sparkle trail
-        setTrail((t) => [
-          ...t,
-          { id: Math.random(), x: next.x, y: next.y }
+        type TrailPoint = { id: number; x: number; y: number }; 
+        const [trail, setTrail] = useState<TrailPoint[]>([]); 
+        
+        setTrail((t) => [ 
+          ...t, 
+          { id: Math.random(), x: next.x, y: next.y } 
         ].slice(-20));
-
+        
         return next;
       });
     }, 16);
