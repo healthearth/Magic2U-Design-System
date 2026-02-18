@@ -27,6 +27,54 @@ body {
   flex-direction: column;
 }
 
+/* Base title styling */
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Container for the cloud */
+.design-systems-cloud {
+  position: relative;
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  margin-right: 0.25em;
+}
+
+/* Text inside the cloud */
+.design-systems-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* Puffy oval cloud outline */
+.design-systems-cloud::before {
+  content: "";
+  position: absolute;
+  inset: -0.25em -0.6em;
+  border-radius: 999px;
+  border: 2px solid rgba(148, 163, 184, 0.9); /* soft slate outline */
+  background: radial-gradient(circle at 30% 20%, #ffffff 0, #f9fafb 40%, #e5e7eb 100%);
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.9),
+    0 6px 14px rgba(15, 23, 42, 0.18);
+  z-index: 1;
+}
+
+/* Gentle floating animation */
+.design-systems-cloud {
+  animation: ds-cloud-float 4s ease-in-out infinite;
+}
+
+@keyframes ds-cloud-float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+
 /* -------------------------------------------------------
    HEADER
 ------------------------------------------------------- */
