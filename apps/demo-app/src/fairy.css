@@ -1,6 +1,8 @@
 /* Main Fairy */
 .fairy {
   position: fixed;
+  bottom: 40px;
+  right: 40px;
   width: 60px;      /* bigger click target */
   height: 60px;
   cursor: pointer;
