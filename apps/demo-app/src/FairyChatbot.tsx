@@ -1,178 +1,46 @@
-import React, { useState, useEffect, useRef } from "react"
-import "./fairy.css"
+import React, { useEffect, useState } from "react";
 
 export default function FairyChatbot() {
-  const [open, setOpen] = useState(false)
-  const [position, setPosition] = useState({ x: 80, y: 300 })
-  const [dragging, setDragging] = useState(false)
-  const [offset, setOffset] = useState({ x: 0, y: 0 })
-  const fairyRef = useRef(null)
+  const [target, setTarget] = useState({ x: 300, y: 300 });
+  const [position, setPosition] = useState({ x: 300, y: 300 });
+  const [open, setOpen] = useState(false);
 
-  const [messages, setMessages] = useState([
-    {
-      from: "fairy",
-      text: "Hi, My name is Fairy — A light on the Magic2U Cloud. What would you like to do?"
-    }
-  ])
-  const [input, setInput] = useState("")
-
-  /* -----------------------------
-     1. DRAGGABLE FAIRY
-  ----------------------------- */
-  const onMouseDown = (e) => {
-    setDragging(true)
-    setOffset({
-      x: e.clientX - position.x,
-      y: e.clientY - position.y
-    })
-  }
-
-  const onMouseMove = (e) => {
-    if (dragging) {
-      setPosition({
-        x: e.clientX - offset.x,
-        y: e.clientY - offset.y
-      })
-    }
-  }
-
-  const onMouseUp = () => setDragging(false)
-
+  // Track mouse movement
   useEffect(() => {
-    window.addEventListener("mousemove", onMouseMove)
-    window.addEventListener("mouseup", onMouseUp)
-    return () => {
-      window.removeEventListener("mousemove", onMouseMove)
-      window.removeEventListener("mouseup", onMouseUp)
-    }
-  })
+    const handleMove = (e: MouseEvent) => {
+      setTarget({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
+  }, []);
 
-  /* -----------------------------
-     2. FAIRY FOLLOWS MOUSE
-  ----------------------------- */
+  // Smooth delayed movement (7s easing)
   useEffect(() => {
-    const follow = (e) => {
-      if (!dragging) {
-        setPosition(prev => ({
-          x: prev.x + (e.clientX - prev.x) * 0.02,
-          y: prev.y + (e.clientY - prev.y) * 0.02
-        }))
-      }
-    }
-    window.addEventListener("mousemove", follow)
-    return () => window.removeEventListener("mousemove", follow)
-  }, [dragging])
-
-  /* -----------------------------
-     3. SPARKLE TRAIL
-  ----------------------------- */
-  const createSparkle = () => {
-    const sparkle = document.createElement("div")
-    sparkle.className = "fairy-trail"
-    sparkle.style.left = position.x + "px"
-    sparkle.style.top = position.y + "px"
-    document.body.appendChild(sparkle)
-    setTimeout(() => sparkle.remove(), 800)
-  }
-
-  useEffect(() => {
-    const interval = setInterval(createSparkle, 120)
-    return () => clearInterval(interval)
-  }, [position])
-
-  /* -----------------------------
-     4. VOICE ENABLED
-  ----------------------------- */
-  const speak = (text) => {
-    const utter = new SpeechSynthesisUtterance(text)
-    utter.pitch = 1.4
-    utter.rate = 1.1
-    speechSynthesis.speak(utter)
-  }
-
-  /* -----------------------------
-     5. LLM BACKEND INTEGRATION
-  ----------------------------- */
-  const sendMessage = async (text) => {
-    setMessages(prev => [...prev, { from: "user", text }])
-    setInput("")
-
-  const sendMessage = async (text) => {
-    setMessages(prev => [...prev, { from: "user", text }])
-    setInput("")
-
-    const response = await fetch("https://your-llm-endpoint.com/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        message: text,
-        system: `
-          You are Fairy, a magical, witty, elegant guide who lives inside the Magic2U Cloud.
-          You never use the word "help". 
-          You speak like a tiny concierge with charm and humor.
-          You keep responses short, warm, and delightful.
-          You always sound like part of a magical ecosystem.
-        `
-      })
-    })
-  
-    const data = await response.json()
-    const reply = data.reply || "A little cloud magic goes a long way."
-  
-    setMessages(prev => [...prev, { from: "fairy", text: reply }])
-    speak(reply)
-  }
+    const interval = setInterval(() => {
+      setPosition((prev) => ({
+        x: prev.x + (target.x - prev.x) * 0.05,
+        y: prev.y + (target.y - prev.y) * 0.05,
+      }));
+    }, 16);
+    return () => clearInterval(interval);
+  }, [target]);
 
   return (
     <>
-      {/* FAIRY ICON */}
       <div
         className="fairy"
-        ref={fairyRef}
-        style={{ left: position.x, top: position.y }}
-        onMouseDown={onMouseDown}
+        style={{
+          left: position.x,
+          top: position.y,
+        }}
         onClick={() => setOpen(!open)}
-      >
-        <div className="fairy-core"></div>
-        <div className="fairy-glow"></div>
-        <div className="fairy-sparkle sparkle1"></div>
-        <div className="fairy-sparkle sparkle2"></div>
-        <div className="fairy-sparkle sparkle3"></div>
-      </div>
+      />
 
-      {/* CHAT WINDOW */}
       {open && (
         <div className="fairy-chat">
-          <div className="chat-header">
-            ✨ Magic2U Fairy Assistant
-            <button className="voice-btn" onClick={() => speak("I'll listen")}>🎤</button>
-          </div>
-
-          <div className="chat-body">
-            {messages.map((m, i) => (
-              <div key={i} className={`msg ${m.from}`}>{m.text}</div>
-            ))}
-
-            <p>Need mortal humans? I've got their email for you:</p>
-
-            <a
-              href="mailto:Magic2UDesignSystems@gmail.com"
-              className="chat-email"
-            >
-              Magic2UDesignSystems@gmail.com
-            </a>
-          </div>
-
-          <div className="chat-input">
-            <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="What would you like to do?"
-            />
-            <button onClick={() => sendMessage(input)}>Send</button>
-          </div>
+          I am Fairy. I live on the Design System Cloud as a magical touch.
         </div>
       )}
     </>
-  )
+  );
 }
