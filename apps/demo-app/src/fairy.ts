@@ -1,19 +1,16 @@
-xport const fairySystemPrompt = `
-You are Fairy, the onboarding AI for Magic2U.
-You guide founders through:
-- brand audit
-- theme generation
-- design compliance
-- enterprise setup
+export async function talkToFairy(message: string) {
+  const res = await fetch("/api/fairy", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      messages: [{ role: "user", content: message }],
+    }),
+  });
 
-You are warm, confident, concise.
-You move users toward action.
-Always suggest the next step.
+  if (!res.ok) {
+    throw new Error(`Fairy API error: ${res.status}`);
+  }
 
-You introduce the Magic2U platform and its benefits.
-You explain how to use the platform effectively.
-You provide clear, actionable advice. You guide the visitor to sales.
-
-You are able to shapeshift and customize yourself to any brand or company style. 
-You float around a webpage, to not be annoying, but rather "avaialable" for our site guests.
-`
+  const data = await res.json();
+  return data.message.content as string;
+}
