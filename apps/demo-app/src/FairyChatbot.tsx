@@ -9,24 +9,12 @@ export default function FairyChatbot() {
   const fairyRef = useRef(null)
 
   const [messages, setMessages] = useState([
-    { 
-      from: "Fairy", text: "Hello! my name is Fairy. I live in the Magic2U Cloud as ✨ a MagicAl Touch Able to Respond AlOUD." 
+    {
+      from: "fairy",
+      text: "Hi, My name is Fairy — A light on the Magic2U Cloud. What would you like to do?"
     }
   ])
-
-  useEffect(() => {
-  speak(messages[0].text)
-  }, [])
-
   const [input, setInput] = useState("")
-
-  const speak = (text) => {
-  const utter = new SpeechSynthesisUtterance(text)
-  utter.pitch = 1.4
-  utter.rate = 1.1
-  speechSynthesis.speak(utter)
-  }
-
 
   /* -----------------------------
      1. DRAGGABLE FAIRY
@@ -102,19 +90,6 @@ export default function FairyChatbot() {
     speechSynthesis.speak(utter)
   }
 
-  const startListening = () => {
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
-    if (!SpeechRecognition) return
-
-    const recognition = new SpeechRecognition()
-    recognition.lang = "en-US"
-    recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript
-      sendMessage(transcript)
-    }
-    recognition.start()
-  }
-
   /* -----------------------------
      5. LLM BACKEND INTEGRATION
   ----------------------------- */
@@ -122,16 +97,28 @@ export default function FairyChatbot() {
     setMessages(prev => [...prev, { from: "user", text }])
     setInput("")
 
-    // Replace with your real backend endpoint
+  const sendMessage = async (text) => {
+    setMessages(prev => [...prev, { from: "user", text }])
+    setInput("")
+
     const response = await fetch("https://your-llm-endpoint.com/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: text })
+      body: JSON.stringify({
+        message: text,
+        system: `
+          You are Fairy, a magical, witty, elegant guide who lives inside the Magic2U Cloud.
+          You never use the word "help". 
+          You speak like a tiny concierge with charm and humor.
+          You keep responses short, warm, and delightful.
+          You always sound like part of a magical ecosystem.
+        `
+      })
     })
-
+  
     const data = await response.json()
-    const reply = data.reply || "I'm here to help!"
-
+    const reply = data.reply || "A little cloud magic goes a long way."
+  
     setMessages(prev => [...prev, { from: "fairy", text: reply }])
     speak(reply)
   }
@@ -158,7 +145,7 @@ export default function FairyChatbot() {
         <div className="fairy-chat">
           <div className="chat-header">
             ✨ Magic2U Fairy Assistant
-            <button className="voice-btn" onClick={startListening}>🎤</button>
+            <button className="voice-btn" onClick={() => speak("I'll listen")}>🎤</button>
           </div>
 
           <div className="chat-body">
@@ -166,8 +153,7 @@ export default function FairyChatbot() {
               <div key={i} className={`msg ${m.from}`}>{m.text}</div>
             ))}
 
-            {/* INSERTED LINES — EXACTLY WHERE THEY BELONG */}
-            <p>Need a human? I can summon one instantly:</p>
+            <p>Need mortal humans? I've got their email for you:</p>
 
             <a
               href="mailto:Magic2UDesignSystems@gmail.com"
@@ -181,7 +167,7 @@ export default function FairyChatbot() {
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask me anything…"
+              placeholder="What would you like to do?"
             />
             <button onClick={() => sendMessage(input)}>Send</button>
           </div>
