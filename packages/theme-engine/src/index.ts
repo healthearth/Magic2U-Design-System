@@ -2,15 +2,20 @@ import { TokenSet } from "@magic2u/tokens"
 
 export type BrandTheme = TokenSet
 
-let activeTheme: BrandTheme | null = null
-
-export function setTheme(theme: BrandTheme) {
-  activeTheme = theme
-}
-
-export function getTheme(): BrandTheme {
-  if (!activeTheme) {
-    throw new Error("Theme not set")
+export function createTheme(
+  base: TokenSet,
+  overrides: Partial<TokenSet>
+): BrandTheme {
+  return {
+    ...base,
+    ...overrides,
+    colors: {
+      ...base.colors,
+      ...overrides.colors,
+    },
+    radius: {
+      ...base.radius,
+      ...overrides.radius,
+    },
   }
-  return activeTheme
 }
