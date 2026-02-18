@@ -7,6 +7,9 @@ export default function App() {
     <>
       <FairyChatbot />
       <LandingPage />
+
+      {/* Fairy */}
+      <FairyChatbot />
     </>
   );
 }
