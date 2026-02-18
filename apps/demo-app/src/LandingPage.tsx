@@ -39,6 +39,35 @@ export default function LandingPage() {
           </div>
         </section>
 
+        <section id="demo" className="landing-section">
+          <h2>Live Demo</h2>
+
+          <p className="center">
+            Explore how Magic2U Cloud instantly transforms into any brand using tokens,
+            themes, and white‑label configuration.
+          </p>
+
+          <div className="demo-controls">
+            <h3>Theme</h3>
+            <button>Light</button>
+            <button>Dark</button>
+            <button>High Contrast</button>
+
+            <h3>Brand</h3>
+            <button>UnitedHealthcare</button>
+            <button>Your Brand Here</button>
+            <button>Custom</button>
+          </div>
+
+          <div className="demo-gallery">
+            <h3>Components</h3>
+            <button className="demo-button">Primary Button</button>
+            <input className="demo-input" placeholder="Input field" />
+            <div className="demo-card">Card Component</div>
+          </div>
+        </section>
+
+
         <section id="features" className="landing-section">
           <h2>Why Magic2U Cloud</h2>
           <div className="feature-grid">
