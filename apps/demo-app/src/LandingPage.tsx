@@ -3,8 +3,8 @@ import "./app.css"
 
 export default function LandingPage() {
   return (
+    <FairyChatbot />
     <div className="landing-root theme-light">
-      <FairyChatbot />
       <header className="landing-header">
         <div className="logo">✨ Magic2U Cloud</div>
         <nav>
