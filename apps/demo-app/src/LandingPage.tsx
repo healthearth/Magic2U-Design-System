@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import "./app.css"
-import FairyChatbot from "./FairyChatbot"
 import CloudStatus from "./CloudStatus"
 
 export default function LandingPage() {
