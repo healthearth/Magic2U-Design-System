@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 
+type TrailPoint = { id: number; x: number; y: number };
+
 export default function FairyChatbot() {
   const [target, setTarget] = useState({ x: 300, y: 300 });
   const [position, setPosition] = useState({ x: 300, y: 300 });
   const [open, setOpen] = useState(false);
-  const [trail, setTrail] = useState([]);
+  const [trail, setTrail] = useState<TrailPoint[]>([]);
 
   // Track mouse movement
   useEffect(() => {
@@ -15,7 +17,7 @@ export default function FairyChatbot() {
     return () => window.removeEventListener("mousemove", handleMove);
   }, []);
 
-  // Smooth delayed movement (7s easing)
+  // Smooth delayed movement + trail
   useEffect(() => {
     const interval = setInterval(() => {
       setPosition((prev) => {
@@ -24,18 +26,15 @@ export default function FairyChatbot() {
           y: prev.y + (target.y - prev.y) * 0.05,
         };
 
-        // Add sparkle trail
-        type TrailPoint = { id: number; x: number; y: number }; 
-        const [trail, setTrail] = useState<TrailPoint[]>([]); 
-        
-        setTrail((t) => [ 
-          ...t, 
-          { id: Math.random(), x: next.x, y: next.y } 
-        ].slice(-20));
-        
+        // Sparkle trail
+        setTrail((t) =>
+          [...t, { id: Math.random(), x: next.x, y: next.y }].slice(-20)
+        );
+
         return next;
       });
     }, 16);
+
     return () => clearInterval(interval);
   }, [target]);
 
