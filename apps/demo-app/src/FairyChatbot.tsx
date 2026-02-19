@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { talkToFairy } from "./fairy";
+import { createPortal } from "react-dom";
 
 
 type TrailPoint = { id: number; x: number; y: number };
