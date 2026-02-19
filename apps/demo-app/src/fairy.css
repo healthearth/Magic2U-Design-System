@@ -1,8 +1,6 @@
 /* Main Fairy */
 .fairy {
   position: fixed;
-  bottom: 40px;
-  right: 40px;
   width: 60px;      /* bigger click target */
   height: 60px;
   cursor: pointer;
@@ -15,17 +13,17 @@
   .fairy-chat {
     width: 320px;
     height: 420px;
-  
+
     display: flex;
     flex-direction: column;
-  
+
     background: #111;
     border-radius: 16px;
     overflow: hidden;
-  
+
     box-shadow: 0 20px 50px rgba(0,0,0,0.4);
   }
-  
+
   /* HEADER */
   .chat-header {
     padding: 12px 14px;
@@ -34,18 +32,18 @@
     background: #1f1f1f;
     flex-shrink: 0;
   }
-  
+
   /* MESSAGE LOG */
   .chat-messages {
     flex: 1;                  /* CRITICAL */
     overflow-y: auto;         /* CRITICAL */
     padding: 12px;
-  
+
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
-  
+
   /* MESSAGE BUBBLES */
   .msg {
     max-width: 80%;
@@ -55,19 +53,19 @@
     line-height: 1.4;
     word-break: break-word;
   }
-  
+
   .msg.user {
     align-self: flex-end;
     background: #6366f1;
     color: white;
   }
-  
+
   .msg.fairy {
     align-self: flex-start;
     background: #2a2a2a;
     color: white;
   }
-  
+
   /* INPUT AREA */
   .chat-input {
     flex-shrink: 0;           /* CRITICAL */
@@ -76,7 +74,7 @@
     gap: 6px;
     background: #1a1a1a;
   }
-  
+
   .chat-input input {
     flex: 1;
     border: none;
@@ -86,7 +84,7 @@
     color: white;
     outline: none;
   }
-  
+
   .chat-input button {
     border: none;
     border-radius: 999px;
@@ -98,88 +96,88 @@
     align-items: center;
     justify-content: center;
   }
-  
-  .chat-input button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 0 14px rgba(248, 113, 113, 0.9);
-  }
-  
-  .chat-input button:active {
-    transform: translateY(0);
-    box-shadow: 0 0 8px rgba(248, 113, 113, 0.6);
-  }
-  
-  .fairy:hover .fairy-core {
-    transform: scale(1.2);
-    transition: transform 0.2s ease;
-  }
-  
-  /* Fairy Core */
-  .fairy-core {
-    position: absolute;
-    width: 22px;      /* bigger core */
-    height: 22px;
-    background: white;
-    border-radius: 50%;
-    box-shadow:
-      0 0 18px 10px rgba(255, 255, 255, 0.95),
-      0 0 30px 18px rgba(255, 200, 255, 0.9),
-      0 0 45px 25px rgba(255, 150, 255, 0.8);
-    pointer-events: none;
-  }
-  
-  /* Fairy Glow */
-  .fairy-glow {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    background: radial-gradient(circle, rgba(255,255,255,0.9), rgba(255,255,255,0));
-    border-radius: 50%;
-    filter: blur(12px);
-    opacity: 1;
-    pointer-events: none;
-  }
-  
-  /* Fairy Sparkle */
-  .fairy-sparkle {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.9;
-    animation: sparkle 1.2s infinite ease-in-out;
-    pointer-events: none;
-  }
-  
-  /* Sparkle Trail */
-  .fairy-trail {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    background: white;
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0.8;
-    animation: trailFade 0.8s ease-out forwards;
-    box-shadow: 0 0 12px 6px rgba(255,255,255,0.8);
-    z-index: 999999 !important;
-  }
-  
-  @keyframes trailFade {
-    from { transform: scale(1); opacity: 0.9; }
-    to { transform: scale(0.2); opacity: 0; }
-  }
-  
-  /* Theme-aware fairy colors */
-  .theme-light .fairy-core {
-    box-shadow: 0 0 12px 6px #ffd6ff, 0 0 20px 10px #ffb3ff;
-  }
-  
-  .theme-dark .fairy-core {
-    box-shadow: 0 0 12px 6px #a78bfa, 0 0 20px 10px #7c3aed;
-  }
-  
-  .theme-high-contrast .fairy-core {
-    box-shadow: 0 0 12px 6px yellow, 0 0 20px 10px orange;
-  }
+
+    .chat-input button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 14px rgba(248, 113, 113, 0.9);
+    }
+
+    .chat-input button:active {
+      transform: translateY(0);
+      box-shadow: 0 0 8px rgba(248, 113, 113, 0.6);
+    }
+
+    .fairy:hover .fairy-core {
+      transform: scale(1.2);
+      transition: transform 0.2s ease;
+    }
+
+    /* Fairy Core */
+    .fairy-core {
+      position: absolute;
+      width: 22px;      /* bigger core */
+      height: 22px;
+      background: white;
+      border-radius: 50%;
+      box-shadow:
+        0 0 18px 10px rgba(255, 255, 255, 0.95),
+        0 0 30px 18px rgba(255, 200, 255, 0.9),
+        0 0 45px 25px rgba(255, 150, 255, 0.8);
+      pointer-events: none;
+    }
+
+    /* Fairy Glow */
+    .fairy-glow {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: radial-gradient(circle, rgba(255,255,255,0.9), rgba(255,255,255,0));
+      border-radius: 50%;
+      filter: blur(12px);
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    /* Fairy Sparkle */
+    .fairy-sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.9;
+      animation: sparkle 1.2s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    /* Sparkle Trail */
+    .fairy-trail {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0.8;
+      animation: trailFade 0.8s ease-out forwards;
+      box-shadow: 0 0 12px 6px rgba(255,255,255,0.8);
+      z-index: 999999 !important;
+    }
+
+    @keyframes trailFade {
+      from { transform: scale(1); opacity: 0.9; }
+      to { transform: scale(0.2); opacity: 0; }
+    }
+
+    /* Theme-aware fairy colors */
+    .theme-light .fairy-core {
+      box-shadow: 0 0 12px 6px #ffd6ff, 0 0 20px 10px #ffb3ff;
+    }
+
+    .theme-dark .fairy-core {
+      box-shadow: 0 0 12px 6px #a78bfa, 0 0 20px 10px #7c3aed;
+    }
+
+    .theme-high-contrast .fairy-core {
+      box-shadow: 0 0 12px 6px yellow, 0 0 20px 10px orange;
+    }
